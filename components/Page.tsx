@@ -12,7 +12,7 @@ const VARIANT_MAPS: Record<string, string> = {
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
   id: string;
-  variant: string;
+  variant?: string;
   className?: string;
 };
 
@@ -23,7 +23,10 @@ export const Page: FunctionComponent<Props> = ({
   variant,
   children,
 }) => (
-  <section className={classNames(VARIANT_MAPS[variant], className)} id={id}>
+  <section
+    className={classNames(VARIANT_MAPS[variant ? variant : ""], className)}
+    id={id}
+  >
     <div className="container mx-auto px-4 xl:px-40 min-h-screen flex justify-around items-baseline text-center flex-col">
       {children}
     </div>
