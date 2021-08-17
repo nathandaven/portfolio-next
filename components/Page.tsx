@@ -22,16 +22,18 @@ export const Page: FunctionComponent<Props> = ({
   className,
   variant,
   children,
-}) => (
-  <section
-    className={classNames(VARIANT_MAPS[variant ? variant : ""], className)}
-    id={id}
-  >
-    <div className="container mx-auto px-4 xl:px-40 min-h-screen flex justify-around items-baseline text-center flex-col">
-      {children}
-    </div>
-  </section>
-);
+}) => {
+  return (
+    <section
+      className={classNames(VARIANT_MAPS[variant ? variant : ""], className)}
+      id={id}
+    >
+      <div className="container mx-auto px-4 xl:px-40 min-h-screen flex justify-around items-baseline text-center flex-col">
+        {children}
+      </div>
+    </section>
+  );
+};
 
 // Example usage
 const el = <Page id="123" variant="LIGHT" />;

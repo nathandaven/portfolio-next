@@ -12,13 +12,15 @@ export const GenericComponent: FunctionComponent<Props> = ({
   className,
   id,
   children,
-}) => (
-  <>
-    <div className={classNames("", className)} id={id}>
-      {children}
-    </div>
-  </>
-);
+}) => {
+  return (
+    <>
+      <div className={classNames("", className)} id={id}>
+        {children}
+      </div>
+    </>
+  );
+};
 
 // Example usage
 const el = <GenericComponent />;

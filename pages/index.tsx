@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
 import { Landing } from "../sections/Landing";
@@ -47,8 +48,9 @@ const Home: NextPage = () => {
         <meta property="profile:first_name" content="Nathan" />
         <meta property="profile:last_name" content="Davenport" />
       </Head>
-      <Header solid={false} />
+      <Header solid={false} isHomePage={true} />
       <Landing />
+      <Footer />
     </>
   );
 };
