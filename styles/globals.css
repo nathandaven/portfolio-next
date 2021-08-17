@@ -1,16 +1,38 @@
+/* Google Fonts -- Red Hat Display and Fira Code */
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+
+/* COLORS */
+
+:root {
+  /* Color styles */
+  --primary--grey: #1e1f1c;
+  --dark--grey: #171815;
+  --white: #ffffff;
+  --secondary--grey: #272822;
+  --codeyellow: #e6db74;
+  --codesand: #cf9f74;
+  --codemustard: #e6b422;
+  --codegreen: #a6e22e;
+  --codeblue: #66d9ef;
+  --codewhite: #eaeae5;
+  --codewhitedark: #dcdcd6;
+  --codepink: #e8236a;
+  --codeorange: #fd971f;
+  /* Text-size styles */
+  /* base size: default--text (18px) */
+  --default--text: 1rem;
+  /* Effect styles */
+  --card-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  transition: background 2s;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+/* Tailwind CSS */
 
-* {
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
