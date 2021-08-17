@@ -23,7 +23,7 @@ export const Continue: FunctionComponent<Props> = ({
   return (
     <>
       <div className={classNames("", className)} id={id}>
-        <div className="w-full sm:pt-10 pb-10">
+        <div className="w-full sm:pt-4 mb-2">
           <div className="flex justify-center items-center text-center pt-10">
             <p>Continue your quest below:</p>
           </div>
