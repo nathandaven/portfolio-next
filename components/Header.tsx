@@ -26,7 +26,9 @@ export const Header: FunctionComponent<Props> = ({
       if (isHomePage === true) {
         let tag = "";
         if (window.pageYOffset > 600) {
-          tag = "text-codewhite  mix-blend-exclusion ";
+          tag = solid
+            ? "bg-codewhite dark:bg-darkgrey shadow-md"
+            : "text-codewhite  mix-blend-exclusion ";
         } else {
           tag = " text-darkgrey";
         }
@@ -35,15 +37,15 @@ export const Header: FunctionComponent<Props> = ({
         setColor("text-codewhite dark:text-codewhite  mix-blend-exclusion ");
       }
     });
-  }, [isHomePage]);
+  }, [isHomePage, solid]);
 
   return (
     <>
       <header
         className={classNames(
-          "fixed top-0 left-0 right-0 z-50 justify-center items-center",
-          solid ? "" : color,
-          solid ? "bg-codewhite dark:bg-darkgrey shadow-md" : "",
+          "fixed top-0 left-0 right-0 z-50 justify-center items-center transition-all",
+          color,
+          solid && !isHomePage ? "bg-codewhite dark:bg-darkgrey shadow-md" : "",
           className
         )}
         id={id}
@@ -90,4 +92,4 @@ export const Header: FunctionComponent<Props> = ({
 };
 
 // Example usage
-const el = <Header solid={false} />;
+const el = <Header solid={false} isHomePage={false} />;

@@ -8,6 +8,7 @@ import { Landing } from "../sections/Landing";
 const Home: NextPage = () => {
   return (
     <>
+      {/* Metadata */}
       <Head>
         <title>Nathan Davenport&apos;s Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
@@ -48,7 +49,9 @@ const Home: NextPage = () => {
         <meta property="profile:first_name" content="Nathan" />
         <meta property="profile:last_name" content="Davenport" />
       </Head>
-      <Header solid={false} isHomePage={true} />
+
+      {/* Content */}
+      <Header solid={true} isHomePage={true} />
       <Landing />
       <Footer />
     </>
