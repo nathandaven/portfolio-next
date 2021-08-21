@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       setDark(false);
       document.documentElement.classList.remove("dark");
     }
-  }, []);
+  }, [isDark]);
 
   return <Component {...pageProps} />;
 }

@@ -49,7 +49,7 @@ export const DarkModeSwitch: FunctionComponent<Props> = ({
         <Head>
           <meta name="theme-color" content={active ? "#171815" : "#eaeae5"} />
         </Head>
-        <div className="mt-6" onClick={toggleDarkMode}>
+        <div className="mt-6 cursor-pointer " onClick={toggleDarkMode}>
           <FontAwesomeIcon
             className="transform hover:scale-110 text-2xl lg:text-4xl"
             icon={active ? faSun : faMoon}
