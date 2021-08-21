@@ -4,6 +4,8 @@ import { Page } from "../components/Page";
 // Framer Motion
 import { motion } from "framer-motion";
 
+import { DarkModeSwitch } from "../components/DarkModeSwitch";
+
 // Media
 import Image from "next/image";
 import SampleImage from "../public/resources/circlebg-full.svg";
@@ -39,17 +41,20 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
               },
             }}
           >
-            <div className="pt-10 lg:pt-20 lg:pb-0   ">
-              <div className="flex text-left pt-5">
-                <h2 className="text-3xl  md:text-4xl lg:text-5xl font-bold text-darkgrey">
-                  Hi traveler!
-                </h2>
+            <div className="pt-10 lg:pt-20 lg:pb-0  flex justify-between">
+              <div className="  ">
+                <div className="flex text-left pt-5">
+                  <h2 className="text-3xl  md:text-4xl lg:text-5xl font-bold text-darkgrey">
+                    Hi traveler!
+                  </h2>
+                </div>
+                <div className="flex text-left">
+                  <h1 className="text-6xl sm:text-8xl lg:text-9xl  font-bold text-darkgrey">
+                    Meet Nathan Davenport:
+                  </h1>
+                </div>
               </div>
-              <div className="flex text-left">
-                <h1 className="text-6xl sm:text-8xl lg:text-9xl  font-bold text-darkgrey">
-                  Meet Nathan Davenport:
-                </h1>
-              </div>
+              <DarkModeSwitch />
             </div>
 
             <div className="pt-20 md:pt-10 text-primarygrey dark:text-codewhite">

@@ -25,9 +25,9 @@ export const Header: FunctionComponent<Props> = ({
     window.addEventListener("scroll", function () {
       if (isHomePage === true) {
         let tag = "";
-        if (window.pageYOffset > 600) {
+        if (window.pageYOffset > 300) {
           tag = solid
-            ? "bg-codewhite dark:bg-darkgrey shadow-md"
+            ? "bg-codewhite  dark:text-codewhite dark:bg-darkgrey shadow-md"
             : "text-codewhite  mix-blend-exclusion ";
         } else {
           tag = " text-darkgrey";

@@ -18,7 +18,7 @@ export const Footer: FunctionComponent<Props> = ({
     <>
       <footer
         className={classNames(
-          "w-full bg-codewhite text-primarygrey dark:bg-darkgrey dark:text-codewhite ",
+          "w-full bg-codewhite text-primarygrey dark:bg-primarygrey dark:text-codewhite ",
           className
         )}
         id={id}

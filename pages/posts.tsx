@@ -9,13 +9,14 @@ import { Landing } from "../sections/Landing";
 import { About } from "../sections/About";
 import { Projects } from "../sections/Projects";
 import { Design } from "../sections/Design";
+import { Page } from "../components/Page";
 
-const Home: NextPage = () => {
+const Posts: NextPage = () => {
   return (
     <>
       {/* Metadata */}
       <Head>
-        <title>Nathan Davenport&apos;s Portfolio</title>
+        <title>Blog | Nathan Davenport&apos;s Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
@@ -29,20 +30,29 @@ const Home: NextPage = () => {
           content="Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta. "
         />
 
-        <link rel="canonical" href="https://nathandaven.com/" />
+        <link rel="canonical" href="https://nathandaven.com/posts" />
         <meta name="robots" content="index, follow" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Nathan Davenport's Portfolio" />
+        <meta
+          property="og:title"
+          content="Blog | Nathan Davenport's Portfolio"
+        />
         <meta
           property="og:description"
           content="Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
         />
         <meta property="og:image" content="/resources/profile.jpeg" />
         <meta property="og:url" content="https://nathandaven.com/" />
-        <meta property="og:site_name" content="Nathan Davenport's Portfolio" />
+        <meta
+          property="og:site_name"
+          content="Blog | Nathan Davenport's Portfolio"
+        />
 
-        <meta name="twitter:title" content="Nathan Davenport's Portfolio" />
+        <meta
+          name="twitter:title"
+          content="Blog | Nathan Davenport's Portfolio"
+        />
         <meta
           name="twitter:description"
           content="Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
@@ -57,13 +67,12 @@ const Home: NextPage = () => {
 
       {/* Content */}
       <Header solid={true} isHomePage={true} />
-      <Landing />
-      <About />
-      <Projects />
-      <Design />
+
+      <Page id="blog" />
+
       <Footer />
     </>
   );
 };
 
-export default Home;
+export default Posts;
