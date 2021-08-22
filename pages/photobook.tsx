@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 
 import { Page } from "../components/Page";
 
+import { GooglePhotoList } from "../components/GooglePhotoList";
+
 const Photobook: NextPage = () => {
   return (
     <>
@@ -99,7 +101,9 @@ const Photobook: NextPage = () => {
           </div>
         </motion.div>
         <div className=""></div>
-        {/* <GooglePhotoList galleryID={currentGallery} /> */}
+        <GooglePhotoList
+          galleryID={/* temporary: */ "jA3ZRcm7KYxdYJe96" /* currentGallery */}
+        />
       </Page>
       <Footer />
     </>
