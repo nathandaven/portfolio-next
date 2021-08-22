@@ -5,10 +5,8 @@ import Head from "next/head";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
-import { Landing } from "../sections/Landing";
-import { About } from "../sections/About";
-import { Projects } from "../sections/Projects";
-import { Design } from "../sections/Design";
+import { motion } from "framer-motion";
+
 import { Page } from "../components/Page";
 
 const Photobook: NextPage = () => {
@@ -43,7 +41,7 @@ const Photobook: NextPage = () => {
           content="Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
         />
         <meta property="og:image" content="/resources/profile.jpeg" />
-        <meta property="og:url" content="https://nathandaven.com/" />
+        <meta property="og:url" content="https://nathandaven.com/posts" />
         <meta
           property="og:site_name"
           content="Photobook | Nathan Davenport's Portfolio"
@@ -68,8 +66,41 @@ const Photobook: NextPage = () => {
       {/* Content */}
       <Header solid={true} isHomePage={true} />
 
-      <Page id="photobook" />
+      <Page id="photobook">
+        <div className="my-20"></div>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              scale: 0.8,
+              opacity: 0,
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 0.2,
+              },
+            },
+          }}
+        >
+          <div className="my-20 text-left">
+            <div className=" w-full md:w-3/4">
+              <h1 className="text-4xl pb-10">
+                Welcome to my <b>Photobook!</b>
+              </h1>
+              <h4 className="py-2 text-2xl">Select an album:</h4>
+            </div>
 
+            <div className="flex flex-col md:flex-row justify-between py-10">
+              {/* <AlbumsList setGallery={setGallery} /> */}
+            </div>
+          </div>
+        </motion.div>
+        <div className=""></div>
+        {/* <GooglePhotoList galleryID={currentGallery} /> */}
+      </Page>
       <Footer />
     </>
   );
