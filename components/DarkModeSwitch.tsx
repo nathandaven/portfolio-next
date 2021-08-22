@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"; // importing FunctionComponent
+import React, { FunctionComponent, useState } from "react"; // importing FunctionComponent
 import classNames from "classnames";
 import Head from "next/head";
 
@@ -19,45 +19,45 @@ export const DarkModeSwitch: FunctionComponent<Props> = ({
   id,
   children,
 }) => {
-  const [active, setActive] = React.useState(false);
-
-  const toggleDarkMode = () => {
-    setActive(!active);
-  };
+  const [loaded, setLoaded] = React.useState(false);
+  const [dark, setDark] = React.useState(false);
 
   React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ? true
-        : false;
+    if (localStorage !== null) {
+      setLoaded(true);
+      setDark(localStorage.theme === "dark" ? true : false);
     }
+  }, [dark]);
 
-    if (active) {
-      localStorage.theme = "dark";
-      document.documentElement.classList.add("dark");
-    } else {
+  const toggleDarkMode = () => {
+    setDark(!dark);
+    localStorage.forceTheme = true;
+    if (localStorage.theme === "dark") {
       localStorage.theme = "light";
       document.documentElement.classList.remove("dark");
+    } else {
+      localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
     }
-  }, [active]);
+  };
 
-  return (
-    <>
+  if (loaded) {
+    return (
       <div className={classNames("", className)} id={id}>
         <Head>
-          <meta name="theme-color" content={active ? "#171815" : "#eaeae5"} />
+          <meta name="theme-color" content={dark ? "#171815" : "#eaeae5"} />
         </Head>
         <div className="mt-6 cursor-pointer " onClick={toggleDarkMode}>
           <FontAwesomeIcon
             className="transform hover:scale-110 text-2xl lg:text-4xl"
-            icon={active ? faSun : faMoon}
+            icon={dark ? faMoon : faSun}
           />
         </div>
       </div>
-    </>
-  );
+    );
+  } else {
+    return null;
+  }
 };
 
 // Example usage

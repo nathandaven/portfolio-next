@@ -8,32 +8,29 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isDark, setDark] = React.useState(false);
-
   React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ? true
-        : false;
-    }
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", function () {
+        if (localStorage.forceTheme !== "true") {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            localStorage.theme = "dark";
+            document.documentElement.classList.add("dark");
+            document.head.innerHTML =
+              document.head.innerHTML +
+              '<meta name="theme-color" content={"#171815"} />';
+          } else {
+            localStorage.theme = "light";
+            document.documentElement.classList.remove("dark");
+            document.head.innerHTML =
+              document.head.innerHTML +
+              '<meta name="theme-color" content={"#eaeae5"} />';
+          }
+        }
+      });
 
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      localStorage.theme = "dark";
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      localStorage.theme = "light";
-      setDark(false);
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
+  }, []);
 
   return <Component {...pageProps} />;
 }
