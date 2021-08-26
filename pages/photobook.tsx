@@ -66,9 +66,9 @@ const Photobook: NextPage = () => {
       </Head>
 
       {/* Content */}
-      <Header solid={true} isHomePage={true} />
+      <Header isHomePage={false} />
 
-      <Page variant="LIGHT" id="photobook">
+      <Page variant="LIGHT" id="photobook" className="dark:bg-darkgrey">
         <div className="my-20"></div>
         <motion.div
           initial="hidden"

@@ -56,7 +56,7 @@ const Home: NextPage = () => {
       </Head>
 
       {/* Content */}
-      <Header solid={true} isHomePage={true} />
+      <Header isHomePage={true} />
       <Landing />
       <About />
       <Projects />

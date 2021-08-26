@@ -65,7 +65,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
   return (
     <>
       <div className={classNames("", className)} id={id}>
-        <Header solid={true} isHomePage={true} />
+        <Header isHomePage={false} />
         <Page variant="LIGHT" id={data.fields.slug}>
           <div className="my-20"></div>
           <motion.div

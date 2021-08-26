@@ -15,10 +15,7 @@ type Props = {};
 
 export const Landing: FunctionComponent<Props> = ({ children }) => {
   return (
-    <main
-      className="w-full ml-auto bg-codewhite dark:bg-primarygrey"
-      role="main"
-    >
+    <main className="w-full ml-auto bg-codewhite dark:bg-darkgrey" role="main">
       <section
         className="bg-circlebgfull bg-no-repeat bg-local bg-circle bg-top"
         id="home"

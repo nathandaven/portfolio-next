@@ -5,15 +5,13 @@ import Link from "next/link";
 
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
-  solid: boolean;
-  isHomePage?: boolean;
+  isHomePage: boolean;
   className?: string;
   id?: string;
 };
 
 // exporting component with OPTIONAL children
 export const Header: FunctionComponent<Props> = ({
-  solid,
   isHomePage,
   className,
   id,
@@ -23,21 +21,15 @@ export const Header: FunctionComponent<Props> = ({
 
   React.useEffect(() => {
     window.addEventListener("scroll", function () {
-      if (isHomePage === true) {
-        let tag = "";
-        if (window.pageYOffset > 300) {
-          tag = solid
-            ? "bg-codewhite  dark:text-codewhite dark:bg-darkgrey shadow-md"
-            : "text-codewhite  mix-blend-exclusion ";
-        } else {
-          tag = " text-darkgrey";
-        }
-        setColor(tag);
+      let tag = "";
+      if (window.pageYOffset > 300 || !isHomePage) {
+        tag = "bg-codewhite  dark:text-codewhite dark:bg-primarygrey shadow-md";
       } else {
-        setColor("text-codewhite dark:text-codewhite  mix-blend-exclusion ");
+        tag = " text-primarygrey";
       }
+      setColor(tag);
     });
-  }, [isHomePage, solid]);
+  }, [isHomePage]);
 
   return (
     <>
@@ -45,7 +37,9 @@ export const Header: FunctionComponent<Props> = ({
         className={classNames(
           "fixed top-0 left-0 right-0 z-50 justify-center items-center transition-all",
           color,
-          solid && !isHomePage ? "bg-codewhite dark:bg-darkgrey shadow-md" : "",
+          !isHomePage
+            ? "bg-codewhite  dark:text-codewhite dark:bg-primarygrey shadow-md"
+            : "",
           className
         )}
         id={id}
@@ -92,4 +86,4 @@ export const Header: FunctionComponent<Props> = ({
 };
 
 // Example usage
-const el = <Header solid={false} isHomePage={false} />;
+const el = <Header isHomePage={false} />;

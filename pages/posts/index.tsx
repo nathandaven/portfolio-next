@@ -43,7 +43,7 @@ const Posts: NextPage = () => {
         className="w-full ml-auto text-primarygrey dark:text-codewhite"
         role="main"
       >
-        <Header solid={true} />
+        <Header isHomePage={true} />
         <Page id="posts" variant="LIGHT">
           {/* <p className="flex justify-center w-full text-2xl text-codewhite">
           Loading...
@@ -60,7 +60,7 @@ const Posts: NextPage = () => {
           className="w-full ml-auto text-primarygrey dark:text-codewhite"
           role="main"
         >
-          <Header solid={true} />
+          <Header isHomePage={false} />
           <Page id="posts" variant="LIGHT">
             <div className="w-full font-sans text-center">
               <p className="pb-3">No posts at this time! Check back later :)</p>
@@ -136,7 +136,7 @@ const Posts: NextPage = () => {
       </Head>
 
       {/* Content */}
-      <Header solid={true} isHomePage={true} />
+      <Header isHomePage={false} />
 
       <Page variant="LIGHT" id="posts">
         <div className="my-20"></div>

@@ -3,9 +3,9 @@ import classNames from "classnames";
 
 // Variants
 const VARIANT_MAPS: Record<string, string> = {
-  DARK: "bg-primarygrey dark:bg-darkgrey text-codewhite",
+  DARK: "bg-primarygrey dark:bg-primarygrey text-codewhite",
   LIGHT:
-    "bg-codewhitedark text-primarygrey dark:bg-primarygrey dark:text-codewhite",
+    "bg-codewhitedark text-primarygrey dark:bg-darkgrey dark:text-codewhite",
   CIRCLE: "bg-circlebgfull bg-no-repeat bg-local bg-contain bg-top",
 };
 

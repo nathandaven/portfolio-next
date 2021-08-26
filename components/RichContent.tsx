@@ -63,7 +63,7 @@ const options = {
       <h1 className="py-4 font-sans text-xl">{children}</h1>
     ),
     [BLOCKS.QUOTE]: (node, children) => (
-      <div className="text-lg bg-codewhitedark dark:bg-secondarygrey rounded-lg shadow-md px-6 py-6 my-4">
+      <div className="text-lg bg-codewhite dark:bg-secondarygrey rounded-lg shadow-md px-6 py-6 my-4">
         {children}
       </div>
     ),
