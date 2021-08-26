@@ -32,7 +32,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
 
       if (!shouldCancel && response.data && response.data.length > 0) {
         setImages(response.data);
-        setLoadedImages(response.data.splice(0, 4));
+        setLoadedImages(response.data.splice(0, 6));
       }
     };
     call();
@@ -42,7 +42,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
   }, [galleryID]);
 
   const fetchMoreData = () => {
-    setLoadedImages(loadedImages.concat(images.splice(0, 1)));
+    setLoadedImages(loadedImages.concat(images.splice(0, 2)));
   };
 
   if (galleryID) {
@@ -60,30 +60,31 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
             </p>
           }
         >
-          {loadedImages.map((src, index) => (
-            <motion.div
-              key={index}
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: {
-                  scale: 0.8,
-                  opacity: 0,
-                },
-                visible: {
-                  scale: 1,
-                  opacity: 1,
-                  transition: {
-                    delay: 0.2,
-                  },
-                },
-              }}
-            >
-              <div
-                className="flex flex-col text-center justify-center h-full"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {loadedImages.map((src, index) => (
+              <motion.div
                 key={index}
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {
+                    scale: 0.8,
+                    opacity: 0,
+                  },
+                  visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                      delay: 0.2,
+                    },
+                  },
+                }}
               >
-                {/* <Image
+                <div
+                  className="flex flex-col text-center justify-center h-full"
+                  key={index}
+                >
+                  {/* <Image
                   className=" relative py-4 w-full"
                   width={100}
                   height={100}
@@ -91,16 +92,17 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
                   alt="Retrieved from Google Photos"
                   key={index}
                 /> */}
-                <img
-                  className="py-4 w-full"
-                  src={`${src}=w1200`}
-                  alt="Retrieved from Google Photos"
-                  loading="lazy"
-                  key={index}
-                />
-              </div>
-            </motion.div>
-          ))}
+                  <img
+                    className=" w-full"
+                    src={`${src}=w1200`}
+                    alt="Retrieved from Google Photos"
+                    loading="lazy"
+                    key={index}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </InfiniteScroll>
       </div>
     ) : (

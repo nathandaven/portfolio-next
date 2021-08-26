@@ -61,7 +61,7 @@ const Home: NextPage = () => {
       <About />
       <Projects />
       <Design />
-      <Footer />
+      <Footer className="dark:bg-darkgrey" />
     </>
   );
 };
