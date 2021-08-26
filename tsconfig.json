@@ -14,6 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/server.ts/js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/api/server.ts/js",
+    "components/RichContent.js",
+    "components/RichContent.js"
+  ],
   "exclude": ["node_modules"]
 }
