@@ -50,7 +50,7 @@ export const Projects: FunctionComponent<Props> = ({ children }) => {
           date="Fall 2019"
           photo={BarsPhoto}
           github="https://github.com/nathandaven/audio-responsive-bars"
-          link="https://nathandaven.com/works/aframe/"
+          link="https://nathandaven.github.io/audio-responsive-bars/"
         >
           <p>
             A reactive audio engine for the aframe.io framework. The bars will

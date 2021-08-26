@@ -83,6 +83,14 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
                 className="flex flex-col text-center justify-center h-full"
                 key={index}
               >
+                {/* <Image
+                  className=" relative py-4 w-full"
+                  width={100}
+                  height={100}
+                  src={`${src}=w1200`}
+                  alt="Retrieved from Google Photos"
+                  key={index}
+                /> */}
                 <img
                   className="py-4 w-full"
                   src={`${src}=w1200`}
