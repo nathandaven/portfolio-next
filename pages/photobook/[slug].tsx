@@ -1,12 +1,16 @@
 import React, { FunctionComponent } from "react"; // importing FunctionComponent
-import classNames from "classnames";
-import { useRouter } from "next/router";
-import { createClient } from "contentful";
-import { RichContent } from "../../components/RichContent";
 
-import { Header } from "../../components/Header";
+import type { NextPage } from "next";
+import Head from "next/head";
 import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header";
+import { createClient } from "contentful";
+import { useRouter } from "next/router";
+import classNames from "classnames";
+
 import { Page } from "../../components/Page";
+
+import { GooglePhotoList } from "../../components/GooglePhotoList";
 import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,15 +26,10 @@ const client = createClient({
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
   className?: string;
-  id?: string;
 };
 
-{
-  /* https://nextjs.org/learn/basics/dynamic-routes/page-path-external-data */
-}
-
 // exporting component with OPTIONAL children
-const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
+const Slug: FunctionComponent<Props> = ({ className, children }) => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -41,7 +40,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
     let shouldCancel = false;
     const call = async () => {
       const response = await client.getEntries({
-        content_type: "page",
+        content_type: "album",
         "fields.slug[in]": slug,
       });
       if (!shouldCancel && response) {
@@ -53,7 +52,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
     return () => {
       shouldCancel = true;
     };
-  }, [slug]);
+  }, [data, slug]);
 
   if (!data) {
     return (
@@ -67,9 +66,9 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
 
   return (
     <>
-      <div className={classNames("", className)} id={id}>
+      <div className={classNames("", className)}>
         <Header isHomePage={false} />
-        <Page variant="LIGHT" id={data.fields.slug}>
+        <Page variant="LIGHT" id="photobook" className="dark:bg-darkgrey">
           <div className="my-20"></div>
           <motion.div
             initial="hidden"
@@ -88,24 +87,22 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
               },
             }}
           >
-            <img
-              className="rounded-lg shadow-lg"
-              src={data.fields.logo.fields.file.url}
-              alt="Post logo"
-            />
-            <div className="my-10 w-full text-left">
-              <h1 className="text-6xl pb-5">
-                <b>{data.fields.title}</b>
-              </h1>
-              <h4 className="py-2 text-2xl">{data.fields.description}</h4>
+            <div className="my-10 text-left">
+              <div className="w-full text-left">
+                <h1 className="text-6xl pb-5">
+                  <b>{data.fields.title}</b>
+                </h1>
+                <h4 className="py-2 text-2xl">{data.fields.description}</h4>
+              </div>
+
+              <div className="flex flex-col md:flex-row justify-between py-10">
+                {/* <AlbumsList setGallery={setGallery} /> */}
+              </div>
             </div>
           </motion.div>
-
-          <div className="container text-left ">
-            <RichContent content={data.fields.content} />
-          </div>
-
-          <div className="pt-20"></div>
+          <div className=""></div>
+          <GooglePhotoList galleryID={data.fields.googlePhotosId} />
+          <div className="py-2"></div>
         </Page>
         <Footer />
       </div>

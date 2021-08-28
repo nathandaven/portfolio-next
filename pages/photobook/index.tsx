@@ -2,16 +2,39 @@ import React from "react"; // importing FunctionComponent
 
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
+import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header";
 
 import { motion } from "framer-motion";
 
-import { Page } from "../components/Page";
+import { Page } from "../../components/Page";
 
-import { GooglePhotoList } from "../components/GooglePhotoList";
+import { createClient } from "contentful";
+import Link from "next/link";
+import { Card } from "../../components/Card";
+import Image from "next/image";
+
+const client = createClient({
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_SECRET!,
+});
 
 const Photobook: NextPage = () => {
+  const [posts, setAlbums] = React.useState([] as any);
+
+  React.useEffect(() => {
+    let shouldCancel = false;
+    const call = async () => {
+      const response = await client.getEntries({ content_type: "album" });
+      if (!shouldCancel && response) {
+        setAlbums(response.items);
+      }
+    };
+    call();
+    return () => {
+      shouldCancel = true;
+    };
+  }, []);
   return (
     <>
       {/* Metadata */}
@@ -87,23 +110,66 @@ const Photobook: NextPage = () => {
             },
           }}
         >
-          <div className="my-20 text-left">
+          <div className="my-10 text-left">
             <div className=" w-full md:w-3/4">
               <h1 className="text-4xl pb-10">
                 Welcome to my <b>Photobook!</b>
               </h1>
               <h4 className="py-2 text-2xl">Select an album:</h4>
             </div>
-
-            <div className="flex flex-col md:flex-row justify-between py-10">
-              {/* <AlbumsList setGallery={setGallery} /> */}
-            </div>
           </div>
         </motion.div>
-        <div className=""></div>
-        <GooglePhotoList
-          galleryID={/* temporary: */ "jA3ZRcm7KYxdYJe96" /* currentGallery */}
-        />
+        <div className="w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* <AlbumsList setGallery={setGallery} /> */}
+            {posts.map((album: any) => (
+              <motion.div
+                key={album.fields.title.toString()}
+                className="w-full"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {
+                    scale: 0.8,
+                    opacity: 0,
+                  },
+                  visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                      delay: 0.2,
+                    },
+                  },
+                }}
+              >
+                <Card variant="LIGHT" key={album.fields.title.toString()}>
+                  <div className="font-sans pb-4">
+                    <h1 className="text-2xl">
+                      <b>{album.fields.title}</b>
+                    </h1>
+                  </div>
+                  <div className="py-4 mb-4 relative object-cover xl:h-96 h-72 w-auto  ">
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      quality={100}
+                      className="rounded-lg shadow-lg transition-all"
+                      src={"http:" + album.fields.coverPhoto.fields.file.url}
+                      alt={"Cover photo for album: " + album.fields.title}
+                    />
+                  </div>
+
+                  <Link href={`/photobook/${album.fields.slug}`}>
+                    <button className="w-full px-6 py-2 mx-2 my-1 rounded-md bg-green-600 hover:bg-green-700  text-white  text-md font-sans drop-shadow-md">
+                      View Album &gt;
+                    </button>
+                  </Link>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        <div className="py-10"></div>
       </Page>
       <Footer />
     </>

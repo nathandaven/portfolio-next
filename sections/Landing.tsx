@@ -54,8 +54,8 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
               <DarkModeSwitch />
             </div>
 
-            <div className="pt-20 md:pt-10 text-primarygrey dark:text-codewhite">
-              <div className="flex align-middle	 justify-end">
+            <div className="pt-20 px-5 md:pt-10 text-primarygrey dark:text-codewhite">
+              <div className="flex align-middle	pt-5 justify-end">
                 <motion.div
                   animate={{ scale: 1.2 }}
                   transition={{
@@ -64,8 +64,8 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                     duration: 2.5,
                   }}
                 >
-                  <h4 className="lg:text-5xl sm:text-3xl text-xl  font-regular">
-                    YouTuber
+                  <h4 className="xl:text-5xl sm:text-3xl text-xl  font-regular">
+                    Music Production
                   </h4>
                 </motion.div>
               </div>
@@ -78,8 +78,8 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                     duration: 2.8,
                   }}
                 >
-                  <h4 className="lg:text-5xl sm:text-3xl text-xl  font-regular">
-                    Designer
+                  <h4 className="xl:text-5xl sm:text-3xl text-xl  font-regular">
+                    UI/UX Design
                   </h4>
                 </motion.div>
                 <motion.div
@@ -90,8 +90,8 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                     duration: 2.2,
                   }}
                 >
-                  <h4 className="pt-5 sm:pt-10 lg:text-3xl sm:text-2xl text-xl  font-regular">
-                    Guitarist
+                  <h4 className="pt-10  xl:text-3xl sm:text-2xl text-xl  font-regular">
+                    Photo & Video
                   </h4>
                 </motion.div>
                 <motion.div
@@ -102,8 +102,8 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                     duration: 2,
                   }}
                 >
-                  <h4 className="pt-20 lg:text-5xl sm:text-3xl text-xl  font-regular">
-                    Developer
+                  <h4 className="pt-20 xl:text-5xl sm:text-3xl text-xl  font-regular">
+                    Computer Science
                   </h4>
                 </motion.div>
               </div>
@@ -116,8 +116,8 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                     duration: 2,
                   }}
                 >
-                  <h4 className="lg:text-4xl sm:text-2xl text-xl  font-regular">
-                    Photographer
+                  <h4 className="xl:text-4xl sm:text-2xl text-xl  font-regular">
+                    Game Development
                   </h4>
                 </motion.div>
               </div>
@@ -131,8 +131,8 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                     duration: 2.3,
                   }}
                 >
-                  <h4 className="lg:text-4xl sm:text-2xl text-xl  font-regular">
-                    Music Producer
+                  <h4 className="xl:text-4xl sm:text-2xl text-xl  font-regular">
+                    Front-End Development
                   </h4>
                 </motion.div>
               </div>

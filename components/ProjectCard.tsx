@@ -72,8 +72,9 @@ export const ProjectCard: FunctionComponent<Props> = ({
                 <Image
                   layout="fill"
                   objectFit="cover"
+                  placeholder="blur"
                   quality={100}
-                  className="rounded-lg shadow-lg"
+                  className="rounded-lg shadow-lg transition-all"
                   src={photo}
                   alt={title}
                 />

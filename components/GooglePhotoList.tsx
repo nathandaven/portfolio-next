@@ -6,6 +6,10 @@ import Image from "next/image";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { Page } from "./Page";
+
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
   galleryID: string;
@@ -42,7 +46,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
   }, [galleryID]);
 
   const fetchMoreData = () => {
-    setLoadedImages(loadedImages.concat(images.splice(0, 2)));
+    setLoadedImages(loadedImages.concat(images.splice(0, 4)));
   };
 
   if (galleryID) {
@@ -106,14 +110,20 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
         </InfiniteScroll>
       </div>
     ) : (
-      <>
-        <div className="flex text-center justify-center font-sans text-md py-20">
-          <p>Loading...</p>
+      <Page id="loading">
+        <div className="w-full flex justify-center text-5xl">
+          <FontAwesomeIcon icon={faCircleNotch} spin />
         </div>
-      </>
+      </Page>
     );
   } else {
-    return <div className=""></div>;
+    return (
+      <Page id="loading">
+        <div className="w-full flex justify-center text-5xl">
+          <FontAwesomeIcon icon={faCircleNotch} spin />
+        </div>
+      </Page>
+    );
   }
 };
 
