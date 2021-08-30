@@ -152,7 +152,7 @@ const Posts: NextPage = () => {
               scale: 1,
               opacity: 1,
               transition: {
-                delay: 0.2,
+                delay: 0.1,
               },
             },
           }}
@@ -180,7 +180,7 @@ const Posts: NextPage = () => {
                   scale: 1,
                   opacity: 1,
                   transition: {
-                    delay: 0.2,
+                    delay: 0.1,
                   },
                 },
               }}

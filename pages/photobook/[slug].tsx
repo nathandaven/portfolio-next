@@ -15,6 +15,10 @@ import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
+import { faThLarge } from "@fortawesome/free-solid-svg-icons";
+import { faTh } from "@fortawesome/free-solid-svg-icons";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
 
@@ -28,15 +32,23 @@ type Props = {
   className?: string;
 };
 
+// View types
+enum View {
+  LIST,
+  GRIDSMALL,
+  GRIDLARGE,
+}
+
 // exporting component with OPTIONAL children
 const Slug: FunctionComponent<Props> = ({ className, children }) => {
   const router = useRouter();
   const { slug } = router.query;
 
+  // Data fetching logic
+
   const [data, setData] = React.useState(null as any);
 
   React.useEffect(() => {
-    console.log(slug);
     let shouldCancel = false;
     const call = async () => {
       const response = await client.getEntries({
@@ -45,7 +57,6 @@ const Slug: FunctionComponent<Props> = ({ className, children }) => {
       });
       if (!shouldCancel && response) {
         setData(response.items[0]);
-        console.log(response.items[0]);
       }
     };
     call();
@@ -53,6 +64,42 @@ const Slug: FunctionComponent<Props> = ({ className, children }) => {
       shouldCancel = true;
     };
   }, [data, slug]);
+
+  // View logic
+
+  const [view, setView] = React.useState(View.LIST);
+
+  function renderView() {
+    switch (view) {
+      case View.LIST:
+        return (
+          <GooglePhotoList
+            galleryID={data.fields.googlePhotosId}
+            gridSize={1}
+          />
+        );
+
+      case View.GRIDSMALL:
+        return (
+          <GooglePhotoList
+            galleryID={data.fields.googlePhotosId}
+            gridSize={2}
+          />
+        );
+
+      case View.GRIDLARGE:
+        return (
+          <GooglePhotoList
+            galleryID={data.fields.googlePhotosId}
+            gridSize={4}
+          />
+        );
+
+      default:
+        console.log("loading error");
+        return <p>loading error</p>;
+    }
+  }
 
   if (!data) {
     return (
@@ -71,6 +118,7 @@ const Slug: FunctionComponent<Props> = ({ className, children }) => {
         <Page variant="LIGHT" id="photobook" className="dark:bg-darkgrey">
           <div className="my-20"></div>
           <motion.div
+            className="w-full"
             initial="hidden"
             animate="visible"
             variants={{
@@ -82,26 +130,60 @@ const Slug: FunctionComponent<Props> = ({ className, children }) => {
                 scale: 1,
                 opacity: 1,
                 transition: {
-                  delay: 0.2,
+                  delay: 0.1,
                 },
               },
             }}
           >
-            <div className="my-10 text-left">
+            <div className="my-10 text-left flex flex-col sm:flex-row">
               <div className="w-full text-left">
                 <h1 className="text-6xl pb-5">
                   <b>{data.fields.title}</b>
                 </h1>
-                <h4 className="py-2 text-2xl">{data.fields.description}</h4>
+                <h4 className="py-2  text-2xl">{data.fields.description}</h4>
               </div>
 
-              <div className="flex flex-col md:flex-row justify-between py-10">
-                {/* <AlbumsList setGallery={setGallery} /> */}
+              {/* view selector */}
+              <div className="text-gray-900 dark:text-gray-500 text-opacity-50 text-2xl  hidden lg:block">
+                <div className=" py-5 flex justify-between">
+                  <FontAwesomeIcon
+                    className={classNames(
+                      "mx-5 transform hover:scale-110 cursor-pointer",
+                      view === View.LIST
+                        ? "text-primarygrey dark:text-codewhite"
+                        : ""
+                    )}
+                    icon={faAlignJustify}
+                    onClick={() => setView(View.LIST)}
+                  />
+                  <FontAwesomeIcon
+                    className={classNames(
+                      "mx-5 transform hover:scale-110 cursor-pointer",
+                      view === View.GRIDSMALL
+                        ? "text-primarygrey dark:text-codewhite "
+                        : ""
+                    )}
+                    icon={faThLarge}
+                    onClick={() => setView(View.GRIDSMALL)}
+                  />
+                  <FontAwesomeIcon
+                    className={classNames(
+                      "mx-5 transform hover:scale-110 cursor-pointer",
+                      view === View.GRIDLARGE
+                        ? "text-primarygrey dark:text-codewhite"
+                        : ""
+                    )}
+                    icon={faTh}
+                    onClick={() => setView(View.GRIDLARGE)}
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
           <div className=""></div>
-          <GooglePhotoList galleryID={data.fields.googlePhotosId} />
+
+          {renderView()}
+
           <div className="py-2"></div>
         </Page>
         <Footer />

@@ -1,0 +1,45 @@
+.wrapper {
+  z-index: 1;
+  align-items: center;
+  position: fixed;
+  padding: 0px 20px 0px 20px;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+}
+
+.image {
+  display: inline;
+  max-width: 90vw;
+  height: 90vh;
+  object-fit: contain;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.close:hover {
+  opacity: 1;
+}

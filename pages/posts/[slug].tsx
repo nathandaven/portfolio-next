@@ -83,7 +83,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
                 scale: 1,
                 opacity: 1,
                 transition: {
-                  delay: 0.2,
+                  delay: 0.1,
                 },
               },
             }}

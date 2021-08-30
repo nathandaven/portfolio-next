@@ -60,7 +60,7 @@ export const ProjectCard: FunctionComponent<Props> = ({
             scale: 1,
             opacity: 1,
             transition: {
-              delay: 0.2,
+              delay: 0.1,
             },
           },
         }}

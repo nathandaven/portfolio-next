@@ -8,11 +8,20 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
+import { faThLarge } from "@fortawesome/free-solid-svg-icons";
+import { faTh } from "@fortawesome/free-solid-svg-icons";
+
 import { Page } from "./Page";
+
+//import ImageViewer from "react-simple-image-viewer";
+
+import ImageViewer from "../components/ImageViewer";
 
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
   galleryID: string;
+  gridSize: number;
   className?: string;
   id?: string;
 };
@@ -20,6 +29,7 @@ type Props = {
 // exporting component with OPTIONAL children
 export const GooglePhotoList: FunctionComponent<Props> = ({
   galleryID,
+  gridSize,
   className,
   id,
   children,
@@ -36,35 +46,53 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
 
       if (!shouldCancel && response.data && response.data.length > 0) {
         setImages(response.data);
-        setLoadedImages(response.data.splice(0, 6));
+        setLoadedImages(response.data.splice(0, gridSize * 2));
       }
     };
     call();
     return () => {
       shouldCancel = true;
     };
-  }, [galleryID]);
+  }, [galleryID, gridSize]);
 
   const fetchMoreData = () => {
-    setLoadedImages(loadedImages.concat(images.splice(0, 4)));
+    setLoadedImages(loadedImages.concat(images.splice(0, gridSize * 2)));
+  };
+
+  // React image viewer
+
+  const [currentImage, setCurrentImage] = React.useState(0);
+  const [isViewerOpen, setIsViewerOpen] = React.useState(false);
+
+  const openImageViewer = React.useCallback((index) => {
+    setCurrentImage(index);
+    setIsViewerOpen(true);
+    document.body.style.overflow = "hidden";
+  }, []);
+
+  const closeImageViewer = () => {
+    setCurrentImage(0);
+    setIsViewerOpen(false);
+    document.body.style.overflow = "";
   };
 
   if (galleryID) {
     return loadedImages && images ? (
       <div className="w-full ">
         <InfiniteScroll
-          loader=""
+          loader={
+            <div className="w-full flex justify-center text-5xl py-10">
+              <FontAwesomeIcon icon={faCircleNotch} spin />
+            </div>
+          }
           dataLength={images.length} //This is important field to render the next data
           next={fetchMoreData}
           hasMore={true}
           scrollThreshold={0.95}
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div
+            className={"grid grid-cols-1 lg:grid-cols-" + gridSize + " gap-2"}
+          >
             {loadedImages.map((src, index) => (
               <motion.div
                 key={index}
@@ -79,7 +107,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
                     scale: 1,
                     opacity: 1,
                     transition: {
-                      delay: 0.2,
+                      delay: 0.1,
                     },
                   },
                 }}
@@ -97,17 +125,27 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
                   key={index}
                 /> */}
                   <img
-                    className=" w-full"
+                    className=" w-full cursor-pointer"
                     src={`${src}=w1200`}
                     alt="Retrieved from Google Photos"
                     loading="lazy"
                     key={index}
+                    onClick={() => openImageViewer(index)}
                   />
                 </div>
               </motion.div>
             ))}
           </div>
         </InfiniteScroll>
+
+        {isViewerOpen && (
+          <ImageViewer
+            src={loadedImages}
+            backgroundStyle={{}}
+            currentIndex={currentImage}
+            onClose={closeImageViewer}
+          />
+        )}
       </div>
     ) : (
       <Page id="loading">
@@ -128,4 +166,4 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
 };
 
 // Example usage
-const el = <GooglePhotoList galleryID="" />;
+const el = <GooglePhotoList galleryID="" gridSize={1} />;
