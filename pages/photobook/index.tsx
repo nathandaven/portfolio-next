@@ -14,6 +14,8 @@ import Link from "next/link";
 import { Card } from "../../components/Card";
 import Image from "next/image";
 
+import { AlbumCard } from "../../components/AlbumCard";
+
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_SECRET!,
@@ -92,7 +94,7 @@ const Photobook: NextPage = () => {
       <Header isHomePage={false} />
 
       <Page variant="LIGHT" id="photobook" className="dark:bg-darkgrey">
-        <div className="my-20"></div>
+        <div className="mt-10 mb-20"></div>
         <motion.div
           initial="hidden"
           animate="visible"
@@ -110,16 +112,16 @@ const Photobook: NextPage = () => {
             },
           }}
         >
-          <div className="my-10 text-left">
-            <div className=" w-full md:w-3/4">
-              <h1 className="text-4xl pb-10">
-                Welcome to my <b>Photobook!</b>
-              </h1>
-              <h4 className="py-2 text-2xl">Select an album:</h4>
+          <div className="my-5 text-left">
+            <div className="text-9xl w-full">
+              <b>GALLERY</b>
+            </div>
+            <div className="text-4xl w-full /* md:w-3/4 */">
+              <p>Select an album:</p>
             </div>
           </div>
         </motion.div>
-        <div className="w-full">
+        <div className="w-full pt-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* <AlbumsList setGallery={setGallery} /> */}
             {posts.map((album: any) => (
@@ -142,29 +144,11 @@ const Photobook: NextPage = () => {
                   },
                 }}
               >
-                <Card variant="LIGHT" key={album.fields.title.toString()}>
-                  <div className="font-sans pb-4">
-                    <h1 className="text-2xl">
-                      <b>{album.fields.title}</b>
-                    </h1>
-                  </div>
-                  <div className="py-4 mb-4 relative object-cover xl:h-96 h-72 w-auto  ">
-                    <Image
-                      layout="fill"
-                      objectFit="cover"
-                      quality={100}
-                      className="rounded-lg shadow-lg transition-all"
-                      src={"http:" + album.fields.coverPhoto.fields.file.url}
-                      alt={"Cover photo for album: " + album.fields.title}
-                    />
-                  </div>
-
-                  <Link href={`/photobook/${album.fields.slug}`}>
-                    <button className="w-full px-6 py-2 mx-2 my-1 rounded-md bg-green-600 hover:bg-green-700  text-white  text-md font-sans drop-shadow-md">
-                      View Album &gt;
-                    </button>
-                  </Link>
-                </Card>
+                <AlbumCard
+                  title={album.fields.title}
+                  photoURL={album.fields.coverPhoto.fields.file.url}
+                  slug={album.fields.slug}
+                />
               </motion.div>
             ))}
           </div>

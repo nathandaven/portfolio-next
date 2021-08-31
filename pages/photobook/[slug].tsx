@@ -115,7 +115,11 @@ const Slug: FunctionComponent<Props> = ({ className, children }) => {
     <>
       <div className={classNames("", className)}>
         <Header isHomePage={false} />
-        <Page variant="LIGHT" id="photobook" className="dark:bg-darkgrey">
+        <Page
+          variant="LIGHT"
+          id="photobook"
+          className="dark:bg-darkgrey min-h-0"
+        >
           <div className="my-20"></div>
           <motion.div
             className="w-full"
@@ -180,9 +184,7 @@ const Slug: FunctionComponent<Props> = ({ className, children }) => {
               </div>
             </div>
           </motion.div>
-          <div className=""></div>
-
-          {renderView()}
+          <div className="min-h-screen w-full">{renderView()}</div>
 
           <div className="py-2"></div>
         </Page>

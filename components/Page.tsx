@@ -28,7 +28,12 @@ export const Page: FunctionComponent<Props> = ({
       className={classNames(VARIANT_MAPS[variant ? variant : ""], className)}
       id={id}
     >
-      <div className="container mx-auto px-4 xl:px-40 min-h-screen flex justify-around items-baseline text-center flex-col ">
+      <div
+        className={classNames(
+          "container mx-auto px-4 xl:px-40 min-h-screen flex justify-around items-baseline text-center flex-col ",
+          className
+        )}
+      >
         {children}
       </div>
     </section>

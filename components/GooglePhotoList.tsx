@@ -46,7 +46,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
 
       if (!shouldCancel && response.data && response.data.length > 0) {
         setImages(response.data);
-        setLoadedImages(response.data.splice(0, gridSize * 2));
+        setLoadedImages(response.data.splice(0, gridSize * 8));
       }
     };
     call();
@@ -90,9 +90,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
           hasMore={true}
           scrollThreshold={0.95}
         >
-          <div
-            className={"grid grid-cols-1 lg:grid-cols-" + gridSize + " gap-2"}
-          >
+          <div className={"grid gap-2 grid-cols-1 lg:grid-cols-" + gridSize}>
             {loadedImages.map((src, index) => (
               <motion.div
                 key={index}
@@ -112,10 +110,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
                   },
                 }}
               >
-                <div
-                  className="flex flex-col text-center justify-center h-full"
-                  key={index}
-                >
+                <div className="text-center justify-center h-full" key={index}>
                   {/* <Image
                   className=" relative py-4 w-full"
                   width={100}
