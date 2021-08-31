@@ -14,14 +14,17 @@ import { faTh } from "@fortawesome/free-solid-svg-icons";
 
 import { Page } from "./Page";
 
+import { View } from "../pages/photobook/[slug]";
+
 //import ImageViewer from "react-simple-image-viewer";
 
 import ImageViewer from "../components/ImageViewer";
+import Slug from "../pages/photobook/[slug]";
 
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
   galleryID: string;
-  gridSize: number;
+  view: View;
   className?: string;
   id?: string;
 };
@@ -29,7 +32,7 @@ type Props = {
 // exporting component with OPTIONAL children
 export const GooglePhotoList: FunctionComponent<Props> = ({
   galleryID,
-  gridSize,
+  view,
   className,
   id,
   children,
@@ -46,17 +49,17 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
 
       if (!shouldCancel && response.data && response.data.length > 0) {
         setImages(response.data);
-        setLoadedImages(response.data.splice(0, 8 + gridSize * 2));
+        setLoadedImages(response.data.splice(0, view));
       }
     };
     call();
     return () => {
       shouldCancel = true;
     };
-  }, [galleryID, gridSize]);
+  }, [galleryID, view]);
 
   const fetchMoreData = () => {
-    setLoadedImages(loadedImages.concat(images.splice(0, gridSize * 2)));
+    setLoadedImages(loadedImages.concat(images.splice(0, view)));
   };
 
   // React image viewer
@@ -90,7 +93,15 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
           hasMore={true}
           scrollThreshold={0.95}
         >
-          <div className={"grid gap-2 grid-cols-1 lg:grid-cols-" + gridSize}>
+          <div
+            className={
+              view === View.LIST
+                ? "grid gap-2 grid-cols-1 "
+                : view === View.GRIDSMALL
+                ? "grid gap-2 grid-cols-1 lg:grid-cols-2"
+                : "grid gap-2 grid-cols-1 lg:grid-cols-4"
+            }
+          >
             {loadedImages.map((src, index) => (
               <motion.div
                 key={index}
@@ -159,6 +170,3 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
     );
   }
 };
-
-// Example usage
-const el = <GooglePhotoList galleryID="" gridSize={1} />;

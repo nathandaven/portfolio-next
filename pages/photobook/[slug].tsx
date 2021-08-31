@@ -33,10 +33,10 @@ type Props = {
 };
 
 // View types
-enum View {
-  LIST,
-  GRIDSMALL,
-  GRIDLARGE,
+export enum View {
+  LIST = 4,
+  GRIDSMALL = 8,
+  GRIDLARGE = 16,
 }
 
 // exporting component with OPTIONAL children
@@ -70,35 +70,9 @@ const Slug: FunctionComponent<Props> = ({ className, children }) => {
   const [view, setView] = React.useState(View.LIST);
 
   function renderView() {
-    switch (view) {
-      case View.LIST:
-        return (
-          <GooglePhotoList
-            galleryID={data.fields.googlePhotosId}
-            gridSize={1}
-          />
-        );
-
-      case View.GRIDSMALL:
-        return (
-          <GooglePhotoList
-            galleryID={data.fields.googlePhotosId}
-            gridSize={2}
-          />
-        );
-
-      case View.GRIDLARGE:
-        return (
-          <GooglePhotoList
-            galleryID={data.fields.googlePhotosId}
-            gridSize={4}
-          />
-        );
-
-      default:
-        console.log("loading error");
-        return <p>loading error</p>;
-    }
+    return (
+      <GooglePhotoList galleryID={data.fields.googlePhotosId} view={view} />
+    );
   }
 
   if (!data) {
