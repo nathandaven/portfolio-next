@@ -46,7 +46,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
 
       if (!shouldCancel && response.data && response.data.length > 0) {
         setImages(response.data);
-        setLoadedImages(response.data.splice(0, gridSize * 8));
+        setLoadedImages(response.data.splice(0, 8 + gridSize * 2));
       }
     };
     call();
