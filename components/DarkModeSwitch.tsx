@@ -53,9 +53,6 @@ export const DarkModeSwitch: FunctionComponent<Props> = ({
   if (loaded) {
     return (
       <div className={classNames("text-darkgrey", className)} id={id}>
-        {/* <Head>
-          <meta name="theme-color" content={dark ? "#171815" : "#eaeae5"} />
-        </Head> */}
         <div className="mt-6 cursor-pointer " onClick={toggleDarkMode}>
           <FontAwesomeIcon
             className="transform hover:scale-110 text-2xl lg:text-4xl"

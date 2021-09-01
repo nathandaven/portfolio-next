@@ -15,6 +15,8 @@ import Link from "next/link";
 
 import { Page } from "../../components/Page";
 
+import { Meta } from "../../components/Meta";
+
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_SECRET!,
@@ -39,23 +41,45 @@ const Posts: NextPage = () => {
 
   if (!posts) {
     return (
-      <main
-        className="w-full ml-auto text-primarygrey dark:text-codewhite"
-        role="main"
-      >
-        <Header isHomePage={true} />
-        <Page id="posts" variant="LIGHT">
-          {/* <p className="flex justify-center w-full text-2xl text-codewhite">
+      <>
+        {/* Metadata */}
+        <Meta
+          title={"Blog | Nathan Davenport's Portfolio"}
+          description={
+            "Nathan Davenport's blog about various interests. He doesn't really know what he's doing, but he does have something to say!"
+          }
+          link={"https://nathandaven.com/posts"}
+        />
+
+        {/* Content */}
+        <main
+          className="w-full ml-auto text-primarygrey dark:text-codewhite"
+          role="main"
+        >
+          <Header isHomePage={true} />
+          <Page id="posts" variant="LIGHT">
+            {/* <p className="flex justify-center w-full text-2xl text-codewhite">
           Loading...
         </p> */}
-        </Page>
-      </main>
+          </Page>
+        </main>
+      </>
     );
   }
 
   if (posts.length === 0) {
     return (
       <>
+        {/* Metadata */}
+        <Meta
+          title={"Blog | Nathan Davenport's Portfolio"}
+          description={
+            "Nathan Davenport's blog about various interests. He doesn't really know what he's doing, but he does have something to say!"
+          }
+          link={"https://nathandaven.com/posts"}
+        />
+
+        {/* Content */}
         <main
           className="w-full ml-auto text-primarygrey dark:text-codewhite"
           role="main"
@@ -64,11 +88,6 @@ const Posts: NextPage = () => {
           <Page id="posts" variant="LIGHT">
             <div className="w-full font-sans text-center">
               <p className="pb-3">No posts at this time! Check back later :)</p>
-              {/* <Link to="/">
-                <p className="pt-3 transform hover:scale-110">
-                  <b>Back to home ></b>
-                </p>
-              </Link> */}
             </div>
           </Page>
         </main>
@@ -85,55 +104,13 @@ const Posts: NextPage = () => {
   return (
     <>
       {/* Metadata */}
-      <Head>
-        <title>Blog | Nathan Davenport&apos;s Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta charSet="utf-8" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <link rel="apple-touch-icon" href="/logo192.png" />
-
-        <link rel="manifest" href="/manifest.json" />
-        <meta
-          name="description"
-          content="Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta. "
-        />
-
-        <link rel="canonical" href="https://nathandaven.com/posts" />
-        <meta name="robots" content="index, follow" />
-
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Blog | Nathan Davenport's Portfolio"
-        />
-        <meta
-          property="og:description"
-          content="Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
-        />
-        <meta property="og:image" content="/resources/profile.jpeg" />
-        <meta property="og:url" content="https://nathandaven.com/posts" />
-        <meta
-          property="og:site_name"
-          content="Blog | Nathan Davenport's Portfolio"
-        />
-
-        <meta
-          name="twitter:title"
-          content="Blog | Nathan Davenport's Portfolio"
-        />
-        <meta
-          name="twitter:description"
-          content="Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
-        />
-        <meta name="twitter:image" content="/resources/profile.jpeg" />
-        <meta name="twitter:site" content="@nathandaven" />
-        <meta name="twitter:creator" content="@nathandaven" />
-
-        <meta property="profile:first_name" content="Nathan" />
-        <meta property="profile:last_name" content="Davenport" />
-      </Head>
+      <Meta
+        title={"Blog | Nathan Davenport's Portfolio"}
+        description={
+          "Nathan Davenport's blog about various interests. He doesn't really know what he's doing, but he does have something to say!"
+        }
+        link={"https://nathandaven.com/posts"}
+      />
 
       {/* Content */}
       <Header isHomePage={false} />

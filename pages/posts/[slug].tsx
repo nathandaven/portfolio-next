@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
+import { Meta } from "../../components/Meta";
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
@@ -67,6 +68,15 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
 
   return (
     <>
+      {/* Meta */}
+      <Meta
+        title={data.fields.title + " | Posts | Nathan Davenport's Portfolio"}
+        description={data.fields.description}
+        link={"https://nathandaven.com/posts/" + slug}
+        imageURL={data.fields.logo.fields.file.url}
+      />
+
+      {/* Content */}
       <div className={classNames("", className)} id={id}>
         <Header isHomePage={false} />
         <Page variant="LIGHT" id={data.fields.slug}>

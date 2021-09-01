@@ -84,7 +84,8 @@ const Slug: NextPage<Props> = ({ data }) => {
           data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
         }
         description={data.fields.description}
-        link={"nathandaven.com/photobook" + data.fields.slug}
+        link={"nathandaven.com/photobook/" + data.fields.slug}
+        imageURL={data.fields.coverPhoto.fields.file.url}
       />
       <div>
         <Header isHomePage={false} />
