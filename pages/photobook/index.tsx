@@ -29,6 +29,7 @@ const Photobook: NextPage = () => {
     const call = async () => {
       const response = await client.getEntries({ content_type: "album" });
       if (!shouldCancel && response) {
+        console.log(response);
         setAlbums(response.items);
       }
     };

@@ -75,7 +75,7 @@ export const DesignCard: FunctionComponent<Props> = ({
                 <h1 className="text-2xl">
                   <b>{title}</b>
                 </h1>
-                <h2 className=" text-md">{date}</h2>
+                <h2 className="text-md">{date}</h2>
               </div>
 
               <span className="py-1">{children}</span>
