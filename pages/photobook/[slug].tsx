@@ -27,6 +27,7 @@ import Image from "next/image";
 
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { Meta } from "../../components/Meta";
 
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
@@ -43,62 +44,6 @@ export enum View {
 
 // exporting component with OPTIONAL children
 const Slug: NextPage<Props> = ({ data }) => {
-  // Meta data -- to do
-  const HeaderInfo = () => {
-    <Head>
-      <title>
-        {data.fields.title} | Photobook | Nathan Davenport&apos;s Portfolio
-      </title>
-      <link rel="icon" href="/favicon.ico" />
-      <meta charSet="utf-8" />
-      <link rel="icon" href="/favicon.ico" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-      <link rel="apple-touch-icon" href="/logo192.png" />
-
-      <link rel="manifest" href="/manifest.json" />
-      <meta name="description" content={data.fields.description} />
-
-      <link rel="canonical" href="https://nathandaven.com/photobook" />
-      <meta name="robots" content="index, follow" />
-
-      <meta property="og:type" content="website" />
-      <meta
-        property="og:title"
-        content="{data.fields.title} | Photobook | Nathan Davenport's Portfolio"
-      />
-      <meta
-        property="og:description"
-        content="Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
-      />
-      <meta property="og:image" content="/resources/profile.jpeg" />
-      <meta property="og:url" content="https://nathandaven.com/photobook" />
-      <meta
-        property="og:site_name"
-        content={
-          data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
-        }
-      />
-
-      <meta
-        name="twitter:title"
-        content={
-          data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
-        }
-      />
-      <meta name="twitter:description" content={data.fields.description} />
-      <meta name="twitter:image" content="/resources/profile.jpeg" />
-      <meta name="twitter:site" content="@nathandaven" />
-      <meta name="twitter:creator" content="@nathandaven" />
-
-      <meta property="profile:first_name" content="Nathan" />
-      <meta property="profile:last_name" content="Davenport" />
-    </Head>;
-  };
-
-  const router = useRouter();
-  const { slug } = router.query;
-
   // Data fetching logic
 
   // View logic
@@ -114,7 +59,15 @@ const Slug: NextPage<Props> = ({ data }) => {
   if (!data) {
     return (
       <>
-        {HeaderInfo}
+        <Meta
+          title={
+            data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
+          }
+          description={data.fields.description}
+          link={"nathandaven.com/photobook" + data.fields.slug}
+          imageURL={data.fields.coverPhoto.fields.file.url}
+        />
+
         <Page variant="LIGHT" id="loading">
           <div className="w-full flex justify-center text-5xl">
             <FontAwesomeIcon icon={faCircleNotch} spin />
@@ -126,7 +79,13 @@ const Slug: NextPage<Props> = ({ data }) => {
 
   return (
     <>
-      {HeaderInfo}
+      <Meta
+        title={
+          data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
+        }
+        description={data.fields.description}
+        link={"nathandaven.com/photobook" + data.fields.slug}
+      />
       <div>
         <Header isHomePage={false} />
         <Page
@@ -229,8 +188,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     content_type: "album",
     "fields.slug[in]": slug,
   });
-
-  console.log(response.items);
 
   return {
     props: { data: response.items[0] },

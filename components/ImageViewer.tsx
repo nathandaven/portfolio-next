@@ -65,19 +65,21 @@ const ImageViewer = (props: IProps) => {
         variants={{
           hidden: {
             scale: 0.8,
-
             opacity: 0,
           },
           visible: {
             scale: 1,
             opacity: 1,
+            transition: {
+              delay: 0.5,
+            },
           },
         }}
       >
         <img
           className={styles.image}
           src={`${props.src[currentIndex]}=w2400`}
-          alt=""
+          alt="Image in the Image Viewer"
         />
         {/* <div
           className={`${styles.content} react-simple-image-viewer__modal-content`}

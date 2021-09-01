@@ -6,28 +6,28 @@ function setInitialColorMode() {
       localStorage.theme = "dark";
       document.documentElement.classList.add("dark");
       document.head.innerHTML =
-        document.head.innerHTML +
-        '<meta name="theme-color" content={"#171815"} />';
+        '<meta name="theme-color" content="#171815" />' +
+        document.head.innerHTML;
     } else {
       localStorage.theme = "light";
       document.documentElement.classList.remove("dark");
       document.head.innerHTML =
-        document.head.innerHTML +
-        '<meta name="theme-color" content={"#eaeae5"} />';
+        '<meta name="theme-color" content="#eaeae5" />' +
+        document.head.innerHTML;
     }
   } else {
     if (localStorage.theme === "dark") {
       localStorage.theme = "dark";
       document.documentElement.classList.add("dark");
       document.head.innerHTML =
-        document.head.innerHTML +
-        '<meta name="theme-color" content={"#171815"} />';
+        '<meta name="theme-color" content="#171815" />' +
+        document.head.innerHTML;
     } else {
       localStorage.theme = "light";
       document.documentElement.classList.remove("dark");
       document.head.innerHTML =
-        document.head.innerHTML +
-        '<meta name="theme-color" content={"#eaeae5"} />';
+        '<meta name="theme-color" content="#eaeae5" />' +
+        document.head.innerHTML;
     }
   }
 }

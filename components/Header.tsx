@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"; // importing FunctionComponent
 import classNames from "classnames";
 import { Socials } from "./Socials";
 import Link from "next/link";
+import { THEME_COLOR } from "../pages/_app";
 
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
