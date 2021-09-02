@@ -11,11 +11,11 @@ import { motion } from "framer-motion";
 import { createClient } from "contentful";
 import Link from "next/link";
 
-//import dateFormat from "dateformat";
-
 import { Page } from "../../components/Page";
 
 import { Meta } from "../../components/Meta";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
@@ -58,9 +58,9 @@ const Posts: NextPage = () => {
         >
           <Header isHomePage={true} />
           <Page id="posts" variant="LIGHT">
-            {/* <p className="flex justify-center w-full text-2xl text-codewhite">
-          Loading...
-        </p> */}
+            <div className="w-full flex justify-center">
+              <FontAwesomeIcon icon={faCircleNotch} spin />
+            </div>
           </Page>
         </main>
       </>
@@ -96,9 +96,10 @@ const Posts: NextPage = () => {
   }
 
   function formatDate(date: Date) {
+    var dateFormat = require("dateformat");
     date = new Date(date);
-    //return dateFormat(date, "fullDate");
-    return "need to fix dateformat";
+
+    return dateFormat(date, "fullDate");
   }
 
   return (
@@ -189,17 +190,6 @@ const Posts: NextPage = () => {
                         Read More &gt;
                       </button>
                     </Link>
-                    {/* 
-                    <Link
-                      href={"/posts/" + post.fields.slug}
-                      passHref
-                      post={post}
-                      title={post.fields.title}
-                    >
-                      <button className="w-full px-6 py-2 mx-2 my-1 rounded-md bg-green-600 hover:bg-green-700  text-white  text-md font-sans drop-shadow-md">
-                        Read More &gt;
-                      </button>
-                    </Link> */}
                   </div>
                 </div>
               </Card>

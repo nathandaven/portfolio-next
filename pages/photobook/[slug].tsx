@@ -48,11 +48,15 @@ const Slug: NextPage<Props> = ({ data }) => {
 
   // View logic
 
-  const [view, setView] = React.useState(View.LIST);
+  const [view, setView] = React.useState(View.GRIDSMALL);
 
   function renderView() {
     return (
-      <GooglePhotoList galleryID={data.fields.googlePhotosId} view={view} />
+      <GooglePhotoList
+        galleryID={data.fields.googlePhotosId}
+        view={view}
+        cropPreviews={data.fields.cropPreviews}
+      />
     );
   }
 
@@ -192,6 +196,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: { data: response.items[0] },
+    revalidate: 10,
   };
 };
 

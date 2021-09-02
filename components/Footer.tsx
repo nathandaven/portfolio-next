@@ -23,7 +23,7 @@ export const Footer: FunctionComponent<Props> = ({
         )}
         id={id}
       >
-        <div className="container mx-auto px-4 xl:px-40 items-center py-8  md:pb-0">
+        <div className="container mx-auto px-4 xl:px-20 items-center py-8  md:pb-0">
           <div className="flex justify-between  text-left">
             <b className="">Nathan Davenport</b>
             <Socials />

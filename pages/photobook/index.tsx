@@ -71,17 +71,16 @@ const Photobook: NextPage = () => {
           }}
         >
           <div className="my-5 text-left">
-            <div className="text-9xl w-full">
+            <div className="text-5xl md:text-7xl xl:text-9xl  w-full">
               <b>GALLERY</b>
             </div>
-            <div className="text-4xl w-full /* md:w-3/4 */">
+            <div className="text-xl md:text-2xl w-full ">
               <p>Select an album:</p>
             </div>
           </div>
         </motion.div>
         <div className="w-full pt-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* <AlbumsList setGallery={setGallery} /> */}
             {posts.map((album: any) => (
               <motion.div
                 key={album.fields.title.toString()}

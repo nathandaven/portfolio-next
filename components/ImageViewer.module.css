@@ -6,7 +6,6 @@
   left: 0;
   top: 0;
   z-index: 9999;
-  backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease;
   height: 100%;
@@ -16,6 +15,14 @@
   align-items: center;
   justify-content: center;
   object-fit: contain;
+}
+
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .wrapper {
+    -webkit-backdrop-filter: blur(2em);
+    backdrop-filter: blur(2em);
+  }
 }
 
 .image {

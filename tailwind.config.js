@@ -45,6 +45,10 @@ module.exports = {
         screen50: "50vh",
         screen75: "75vh",
       },
+      maxHeight : {
+        "102": "26rem",
+        "108": "28rem"
+      }
     },
   },
   variants: {

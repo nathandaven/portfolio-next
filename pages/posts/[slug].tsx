@@ -14,16 +14,14 @@ import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
 import { Meta } from "../../components/Meta";
-
-const client = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_SECRET!,
-});
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
+import { ParsedUrlQuery } from "querystring";
 
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
   className?: string;
   id?: string;
+  data: any;
 };
 
 {
@@ -31,31 +29,7 @@ type Props = {
 }
 
 // exporting component with OPTIONAL children
-const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
-  const router = useRouter();
-  const { slug } = router.query;
-
-  const [data, setData] = React.useState(null as any);
-
-  React.useEffect(() => {
-    console.log(slug);
-    let shouldCancel = false;
-    const call = async () => {
-      const response = await client.getEntries({
-        content_type: "page",
-        "fields.slug[in]": slug,
-      });
-      if (!shouldCancel && response) {
-        setData(response.items[0]);
-        console.log(response.items[0]);
-      }
-    };
-    call();
-    return () => {
-      shouldCancel = true;
-    };
-  }, [slug]);
-
+const Slug: FunctionComponent<Props> = ({ className, id, data, children }) => {
   if (!data) {
     return (
       <Page variant="LIGHT" id="loading">
@@ -72,7 +46,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
       <Meta
         title={data.fields.title + " | Posts | Nathan Davenport's Portfolio"}
         description={data.fields.description}
-        link={"https://nathandaven.com/posts/" + slug}
+        link={"https://nathandaven.com/posts/" + data.fields.slug}
         imageURL={data.fields.logo.fields.file.url}
       />
 
@@ -124,3 +98,40 @@ const Slug: FunctionComponent<Props> = ({ className, id, children }) => {
 };
 
 export default Slug;
+
+// static rendering
+interface IParams extends ParsedUrlQuery {
+  slug: string;
+}
+
+// getting Contentful client
+const client = createClient({
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_SECRET!,
+});
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as IParams; // no longer causes error
+
+  // requesting data
+  const response = await client.getEntries({
+    content_type: "page",
+    "fields.slug[in]": slug,
+  });
+
+  return {
+    props: { data: response.items[0] },
+    revalidate: 10,
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const response = await client.getEntries({ content_type: "page" });
+
+  const paths = response.items.map((page: any) => {
+    return {
+      params: { slug: page.fields.slug.toString() },
+    };
+  });
+  return { paths, fallback: false };
+};

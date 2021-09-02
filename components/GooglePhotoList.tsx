@@ -25,6 +25,7 @@ import Slug from "../pages/photobook/[slug]";
 type Props = {
   galleryID: string;
   view: View;
+  cropPreviews: boolean;
   className?: string;
   id?: string;
 };
@@ -33,6 +34,7 @@ type Props = {
 export const GooglePhotoList: FunctionComponent<Props> = ({
   galleryID,
   view,
+  cropPreviews,
   className,
   id,
   children,
@@ -96,10 +98,10 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
           <div
             className={
               view === View.LIST
-                ? "grid gap-2 grid-cols-1 "
+                ? "grid gap-4 grid-cols-1 "
                 : view === View.GRIDSMALL
-                ? "grid gap-2 grid-cols-1 lg:grid-cols-2"
-                : "grid gap-2 grid-cols-1 lg:grid-cols-4"
+                ? "grid gap-4 grid-cols-1 lg:grid-cols-2"
+                : "grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-4"
             }
           >
             {loadedImages.map((src, index) => (
@@ -121,7 +123,10 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
                   },
                 }}
               >
-                <div className="text-center justify-center h-full" key={index}>
+                <div
+                  className="text-center justify-center h-full flex justify-content-center flex-col "
+                  key={index}
+                >
                   {/* <Image
                   className=" relative py-4 w-full"
                   width={100}
@@ -131,7 +136,10 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
                   key={index}
                 /> */}
                   <img
-                    className=" w-full cursor-pointer"
+                    className={classNames(
+                      " w-full cursor-pointer object-cover ",
+                      cropPreviews ? "min-h-full" : ""
+                    )}
                     src={`${src}=w1200`}
                     alt="Retrieved from Google Photos"
                     loading="lazy"

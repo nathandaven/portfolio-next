@@ -19,9 +19,11 @@ export const Header: FunctionComponent<Props> = ({
   children,
 }) => {
   const [color, setColor] = React.useState("");
+  const [show, setShow] = React.useState(true);
 
   React.useEffect(() => {
     window.addEventListener("scroll", function () {
+      checkScroll();
       let tag = "";
       if (window.pageYOffset > 300 || !isHomePage) {
         tag = "bg-codewhite  dark:text-codewhite dark:bg-primarygrey shadow-md";
@@ -32,6 +34,40 @@ export const Header: FunctionComponent<Props> = ({
     });
   }, [isHomePage]);
 
+  function checkScroll() {
+    /*
+     ** Find the direction of scroll
+     ** 0 - initial, 1 - up, 2 - down
+     */
+    var doc = document.documentElement;
+    var w = window;
+    var prevScroll = w.scrollY || doc.scrollTop;
+    var curScroll;
+    var direction = 0;
+    var prevDirection = 0;
+
+    curScroll = w.scrollY || doc.scrollTop;
+    if (curScroll > prevScroll) {
+      //scrolled up
+      direction = 2;
+    } else if (curScroll < prevScroll) {
+      //scrolled down
+      direction = 1;
+    }
+
+    if (direction !== prevDirection) {
+      if (direction === 2 && curScroll > 52) {
+        //replace 52 with the height of your header in px
+
+        setShow(false);
+      } else if (direction === 1) {
+        setShow(true);
+      }
+    }
+
+    prevScroll = curScroll;
+  }
+
   return (
     <>
       <header
@@ -41,11 +77,12 @@ export const Header: FunctionComponent<Props> = ({
           !isHomePage
             ? "bg-codewhite  dark:text-codewhite dark:bg-primarygrey shadow-md"
             : "",
-          className
+          className,
+          show ? "block" : "hidden"
         )}
         id={id}
       >
-        <nav className="container mx-auto px-4 xl:px-40 flex justify-center items-center h-16  ">
+        <nav className="container mx-auto px-4 xl:px-20 flex justify-center items-center h-16  ">
           {/* Logo / title */}
           <div className="flex-1 text-left  hidden sm:contents">
             <div className="flex-1 flex ">
