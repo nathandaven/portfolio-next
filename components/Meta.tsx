@@ -55,7 +55,7 @@ export const Meta: FunctionComponent<Props> = ({
       />
       <meta
         property="og:image"
-        content={imageURL ? imageURL : "/resources/profile.jpeg"}
+        content={imageURL ? imageURL : "./resources/profile.jpeg"}
       />
       <meta
         property="og:url"
