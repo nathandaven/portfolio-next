@@ -81,15 +81,15 @@ export const DesignCard: FunctionComponent<Props> = ({
               <span className="py-1">{children}</span>
             </div>
 
-            <div className="pt-6 flex justify-between items-center">
-              <p className="font-mono ">
+            <div className="pt-6 sm:flex justify-between items-center">
+              <p className="font-mono  w-full">
                 <span className="text-codepink">export default </span>
                 <span className="text-codegreen underline">Design</span>;
               </p>
-              <div className="text-right">
+              <div className="text-right w-full pt-4 sm:pt-0">
                 <button
                   onClick={goToLink}
-                  className="px-6 py-2 mx-2 my-1 rounded-md bg-gray-500 bg-opacity-50 hover:bg-opacity-75 text-codewhite text-md font-sans drop-shadow-md"
+                  className="w-full sm:w-auto px-6 py-2 sm:mx-2 my-1 rounded-md bg-gray-500 bg-opacity-50 hover:bg-opacity-75 text-codewhite text-md font-sans drop-shadow-md"
                 >
                   Check it out &gt;
                 </button>

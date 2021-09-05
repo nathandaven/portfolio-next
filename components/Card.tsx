@@ -15,6 +15,7 @@ const VARIANT_MAPS: Record<string, string> = {
 type Props = {
   className?: string;
   variant?: string;
+  hideWindowButtons?: boolean;
   id?: string;
 };
 
@@ -23,6 +24,7 @@ export const Card: FunctionComponent<Props> = ({
   className,
   id,
   variant,
+  hideWindowButtons,
   children,
 }) => {
   return (
@@ -35,9 +37,14 @@ export const Card: FunctionComponent<Props> = ({
         )}
         id={id}
       >
-        <div className="z-10">
-          <Image src={WindowButtons} alt="Close, maximize, minimize buttons" />
-        </div>
+        {hideWindowButtons ? null : (
+          <div className="z-10">
+            <Image
+              src={WindowButtons}
+              alt="Close, maximize, minimize buttons"
+            />
+          </div>
+        )}
         <div className=" pt-4 filter font-mono">
           {/* Content */}
           {children}

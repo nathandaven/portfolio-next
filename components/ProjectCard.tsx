@@ -88,18 +88,18 @@ export const ProjectCard: FunctionComponent<Props> = ({
               <span className="py-1">{children}</span>
             </div>
 
-            <div className="pt-6 flex justify-between items-center">
-              <p className="font-mono ">
+            <div className="pt-6 sm:flex justify-between items-center">
+              <p className="font-mono w-full">
                 <span className="text-codepink">export default </span>
                 <span className="text-primarygrey dark:text-codegreen underline">
                   Project
                 </span>
                 ;
               </p>
-              <div className="text-right">
+              <div className="text-right pt-4 sm:pt-0">
                 <button
                   onClick={goToGithub}
-                  className="px-6 py-2 mx-2 my-1 rounded-md bg-gray-300 bg-opacity-50 hover:bg-opacity-75 text-primary-grey dark:bg-gray-500 dark:bg-opacity-50 dark:hover:bg-opacity-75 dark:text-codewhite text-md font-sans drop-shadow-md"
+                  className="w-full sm:w-auto px-6 py-2 sm:mx-2 my-1 rounded-md bg-gray-300 bg-opacity-50 hover:bg-opacity-75 text-primary-grey dark:bg-gray-500 dark:bg-opacity-50 dark:hover:bg-opacity-75 dark:text-codewhite text-md font-sans drop-shadow-md"
                 >
                   GitHub{" "}
                   <FontAwesomeIcon
@@ -109,7 +109,7 @@ export const ProjectCard: FunctionComponent<Props> = ({
                 </button>
                 <button
                   onClick={goToLink}
-                  className="px-6 py-2 mx-2 my-1 rounded-md bg-green-600 hover:bg-green-700  text-white  text-md font-sans drop-shadow-md"
+                  className="w-full sm:w-auto px-6 py-2 sm:mx-2 my-1 rounded-md bg-green-600 hover:bg-green-700  text-white  text-md font-sans drop-shadow-md"
                 >
                   Check it out &gt;
                 </button>

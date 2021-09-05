@@ -114,10 +114,11 @@ const Posts: NextPage = () => {
       />
 
       {/* Content */}
+      {/* Content */}
       <Header isHomePage={false} />
 
-      <Page variant="LIGHT" id="posts">
-        <div className="my-20"></div>
+      <Page variant="LIGHT" id="photobook" className="dark:bg-darkgrey">
+        <div className="mt-10 mb-20"></div>
         <motion.div
           initial="hidden"
           animate="visible"
@@ -135,70 +136,79 @@ const Posts: NextPage = () => {
             },
           }}
         >
-          <div className="my-20 w-full text-left">
-            <h1 className="text-4xl pb-10">
-              <b>Check out my most recent posts!</b>
-            </h1>
-            <h4 className="py-2 text-2xl">Pick my brain for a bit:</h4>
+          <div className="my-5 text-left">
+            <div className="text-5xl md:text-7xl xl:text-9xl  w-full">
+              <b>POSTS</b>
+            </div>
+            <div className="text-xl md:text-2xl w-full ">
+              <p>Pick my brain for a bit:</p>
+            </div>
           </div>
         </motion.div>
-        <div className="mb-10">
-          {posts.map((post: any) => (
-            <motion.div
-              key={post.fields.title.toString()}
-              className="w-full"
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: {
-                  scale: 0.8,
-                  opacity: 0,
-                },
-                visible: {
-                  scale: 1,
-                  opacity: 1,
-                  transition: {
-                    delay: 0.1,
+        <div className="w-full pt-10">
+          <div className="grid grid-cols-1  gap-8">
+            {posts.map((post: any) => (
+              <motion.div
+                key={post.fields.title.toString()}
+                className="w-full"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {
+                    scale: 0.8,
+                    opacity: 0,
                   },
-                },
-              }}
-            >
-              <Card variant="LIGHT" key={post.fields.title.toString()}>
-                <div className="flex flex-col md:flex-row justify-between py-6">
-                  <div className="flex flex-col md:flex-row justify-start text-left font-sans">
-                    <img
-                      className="w-full md:w-48 h-full rounded-lg shadow-lg object-cover"
-                      src={post.fields.logo.fields.file.url}
-                      alt="Post logo"
-                    />
-                    <div className="md:pl-6 pt-6 md:pt-0">
-                      <h1 className="text-2xl">
-                        <b>{post.fields.title}</b>
-                      </h1>
-                      <h2 className="text-xl">
-                        <span>{formatDate(post.sys.updatedAt)}</span>
-                      </h2>
-                      <p className="pt-4">{post.fields.description}</p>
+                  visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                      delay: 0.1,
+                    },
+                  },
+                }}
+              >
+                <Card
+                  variant="LIGHT"
+                  key={post.fields.title.toString()}
+                  hideWindowButtons={true}
+                  className="py-4 pb-6"
+                >
+                  <div className="flex flex-col md:flex-row justify-between py-6">
+                    <div className="flex flex-col md:flex-row justify-start text-left font-sans">
+                      <img
+                        className="w-full md:w-48 h-full rounded-lg shadow-lg object-cover"
+                        src={post.fields.logo.fields.file.url}
+                        alt="Post logo"
+                      />
+                      <div className="md:pl-6 pt-6 md:pt-0">
+                        <h1 className="text-2xl">
+                          <b>{post.fields.title}</b>
+                        </h1>
+                        <h2 className="text-xl">
+                          <span>{formatDate(post.sys.updatedAt)}</span>
+                        </h2>
+                        <p className="pt-4">{post.fields.description}</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col justify-center  pt-6 md:pt-0 md:pr-2">
+                      <Link
+                        href={`/posts/${post.fields.slug}`}
+                        passHref
+                        /* as={`/posts/${post.fields.slug}`} */
+                      >
+                        <button className="w-full px-6 py-2 mx-2 my-1 rounded-md bg-green-600 hover:bg-green-700  text-white  text-md font-sans drop-shadow-md">
+                          Read More &gt;
+                        </button>
+                      </Link>
                     </div>
                   </div>
-                  <div className="flex flex-col justify-center  pt-6 md:pt-0 md:pr-2">
-                    <Link
-                      href={`/posts/${post.fields.slug}`}
-                      /* as={`/posts/${post.fields.slug}`} */
-                    >
-                      <button className="w-full px-6 py-2 mx-2 my-1 rounded-md bg-green-600 hover:bg-green-700  text-white  text-md font-sans drop-shadow-md">
-                        Read More &gt;
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
-        <div className=""></div>
+        <div className="py-10"></div>
       </Page>
-
       <Footer />
     </>
   );
