@@ -37,7 +37,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, data, children }) => {
           title={data.fields.title + " | Posts | Nathan Davenport's Portfolio"}
           description={data.fields.description}
           link={data.fields.slug}
-          imageURL={"http://" + data.fields.logo.fields.file.url}
+          imageURL={"http:" + data.fields.logo.fields.file.url}
         />
 
         <Page variant="LIGHT" id="loading">
@@ -56,7 +56,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, data, children }) => {
         title={data.fields.title + " | Posts | Nathan Davenport's Portfolio"}
         description={data.fields.description}
         link={data.fields.slug}
-        imageURL={"http://" + data.fields.logo.fields.file.url}
+        imageURL={"http:" + data.fields.logo.fields.file.url}
       />
 
       {/* Content */}

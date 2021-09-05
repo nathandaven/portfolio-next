@@ -69,7 +69,7 @@ const Slug: NextPage<Props> = ({ data }) => {
           }
           description={data.fields.description}
           link={data.fields.slug}
-          imageURL={"http://" + data.fields.coverPhoto.fields.file.url}
+          imageURL={"http:" + data.fields.coverPhoto.fields.file.url}
         />
 
         <Page variant="LIGHT" id="loading">
@@ -89,7 +89,7 @@ const Slug: NextPage<Props> = ({ data }) => {
         }
         description={data.fields.description}
         link={data.fields.slug}
-        imageURL={"http://" + data.fields.coverPhoto.fields.file.url}
+        imageURL={"http:" + data.fields.coverPhoto.fields.file.url}
       />
       <div>
         <Header isHomePage={false} />
