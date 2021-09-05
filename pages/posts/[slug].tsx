@@ -46,7 +46,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, data, children }) => {
       <Meta
         title={data.fields.title + " | Posts | Nathan Davenport's Portfolio"}
         description={data.fields.description}
-        link={"https://nathandaven.com/posts/" + data.fields.slug}
+        link={data.fields.slug}
         imageURL={data.fields.logo.fields.file.url}
       />
 

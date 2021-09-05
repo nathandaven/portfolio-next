@@ -88,6 +88,8 @@ export const Meta: FunctionComponent<Props> = ({
       <meta property="profile:first_name" content="Nathan" />
       <meta property="profile:last_name" content="Davenport" />
 
+      <meta property="fb:app_id" content="966242223397117" />
+
       {/* Additional Tags as children */}
       {children}
     </Head>
