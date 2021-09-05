@@ -44,7 +44,7 @@ const Posts: NextPage = () => {
       <>
         {/* Metadata */}
         <Meta
-          title={"Blog | Nathan Davenport's Portfolio"}
+          title={"Nathan Davenport's Blog"}
           description={
             "Nathan Davenport's blog about various interests. He doesn't really know what he's doing, but he does have something to say!"
           }
@@ -72,7 +72,7 @@ const Posts: NextPage = () => {
       <>
         {/* Metadata */}
         <Meta
-          title={"Blog | Nathan Davenport's Portfolio"}
+          title={"Nathan Davenport's Blog"}
           description={
             "Nathan Davenport's blog about various interests. He doesn't really know what he's doing, but he does have something to say!"
           }
@@ -106,7 +106,7 @@ const Posts: NextPage = () => {
     <>
       {/* Metadata */}
       <Meta
-        title={"Blog | Nathan Davenport's Portfolio"}
+        title={"Nathan Davenport's Blog"}
         description={
           "Nathan Davenport's blog about various interests. He doesn't really know what he's doing, but he does have something to say!"
         }

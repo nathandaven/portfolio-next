@@ -43,7 +43,7 @@ const Photobook: NextPage = () => {
     <>
       {/* Metadata */}
       <Meta
-        title={"Photobook | Nathan Davenport's Portfolio"}
+        title={"Nathan Davenport's Photobook"}
         description={"Nathan Davenport's photo gallery."}
         link={"https://nathandaven.com/photobook"}
       />

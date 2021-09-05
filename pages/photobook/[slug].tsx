@@ -64,9 +64,7 @@ const Slug: NextPage<Props> = ({ data }) => {
     return (
       <>
         <Meta
-          title={
-            data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
-          }
+          title={data.fields.title + " | Nathan Davenport's Photobook"}
           description={data.fields.description}
           link={data.fields.slug}
           imageURL={"http:" + data.fields.coverPhoto.fields.file.url}
@@ -84,9 +82,7 @@ const Slug: NextPage<Props> = ({ data }) => {
   return (
     <>
       <Meta
-        title={
-          data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
-        }
+        title={data.fields.title + " | Nathan Davenport's Photobook"}
         description={data.fields.description}
         link={data.fields.slug}
         imageURL={"http:" + data.fields.coverPhoto.fields.file.url}

@@ -34,7 +34,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, data, children }) => {
     return (
       <>
         <Meta
-          title={data.fields.title + " | Posts | Nathan Davenport's Portfolio"}
+          title={data.fields.title + " | Nathan Davenport's Blog"}
           description={data.fields.description}
           link={data.fields.slug}
           imageURL={"http:" + data.fields.logo.fields.file.url}
@@ -53,7 +53,7 @@ const Slug: FunctionComponent<Props> = ({ className, id, data, children }) => {
     <>
       {/* Meta */}
       <Meta
-        title={data.fields.title + " | Posts | Nathan Davenport's Portfolio"}
+        title={data.fields.title + " | Nathan Davenport's Blog"}
         description={data.fields.description}
         link={data.fields.slug}
         imageURL={"http:" + data.fields.logo.fields.file.url}
