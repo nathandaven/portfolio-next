@@ -32,11 +32,20 @@ type Props = {
 const Slug: FunctionComponent<Props> = ({ className, id, data, children }) => {
   if (!data) {
     return (
-      <Page variant="LIGHT" id="loading">
-        <div className="w-full flex justify-center text-5xl">
-          <FontAwesomeIcon icon={faCircleNotch} spin />
-        </div>
-      </Page>
+      <>
+        <Meta
+          title={data.fields.title + " | Posts | Nathan Davenport's Portfolio"}
+          description={data.fields.description}
+          link={data.fields.slug}
+          imageURL={data.fields.logo.fields.file.url}
+        />
+
+        <Page variant="LIGHT" id="loading">
+          <div className="w-full flex justify-center text-5xl">
+            <FontAwesomeIcon icon={faCircleNotch} spin />
+          </div>
+        </Page>
+      </>
     );
   }
 

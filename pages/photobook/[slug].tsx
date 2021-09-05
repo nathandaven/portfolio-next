@@ -68,6 +68,7 @@ const Slug: NextPage<Props> = ({ data }) => {
             data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
           }
           description={data.fields.description}
+          link={data.fields.slug}
           imageURL={data.fields.coverPhoto.fields.file.url}
         />
 
@@ -87,7 +88,7 @@ const Slug: NextPage<Props> = ({ data }) => {
           data.fields.title + " | Photobook | Nathan Davenport's Portfolio"
         }
         description={data.fields.description}
-        link={"nathandaven.com/photobook/" + data.fields.slug}
+        link={data.fields.slug}
         imageURL={data.fields.coverPhoto.fields.file.url}
       />
       <div>
