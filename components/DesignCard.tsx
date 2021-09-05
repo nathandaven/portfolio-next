@@ -32,8 +32,6 @@ export const DesignCard: FunctionComponent<Props> = ({
   id,
   children,
 }) => {
-  React.useEffect(() => {}, []);
-
   function goToLink() {
     window.open(link, "_blank");
   }
