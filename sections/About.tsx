@@ -66,7 +66,7 @@ export const About: FunctionComponent<Props> = ({ children }) => {
               <p className="py-1 pt-8">
                 Looking for my resume? Find it{" "}
                 <a
-                  href="https://drive.google.com/file/d/1SdDLIztC9DOZ7hB5Jur1OtiyXhqxme11/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1KvhxySLwIZCBcyeNAgIW_US8zkxeZ64r/view?usp=sharing"
                   target="_blank"
                   rel="noreferrer"
                   className="text-codeorange hover:underline"
