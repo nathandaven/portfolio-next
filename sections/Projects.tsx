@@ -36,7 +36,7 @@ export const Projects: FunctionComponent<Props> = ({ children }) => {
           date="Fall 2020"
           photo={TravelerPhoto}
           github="https://github.com/nathandaven/traveller-gba"
-          link="https://gba.ninja/?autorun=https://nathandaven.com/traveller-quest-for-mead.gba&exclusive"
+          link="https://gba.ninja/?autorun=https://nathandaven.com/resources/traveller-quest-for-mead.gba&exclusive"
         >
           <p>
             My final project for CS 2261 at Georgia Tech. A top down and
