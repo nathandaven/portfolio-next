@@ -16,58 +16,42 @@ export enum THEME_COLOR {
 
 function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", function () {
-        /* if (localStorage.forceTheme !== "true") {
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            localStorage.theme = "dark";
-            document.documentElement.classList.add("dark");
-            document.head.innerHTML =
-              document.head.innerHTML +
-              '<meta name="theme-color" content="#171815" />';
-          } else {
-            localStorage.theme = "light";
-            document.documentElement.classList.remove("dark");
-            document.head.innerHTML =
-              document.head.innerHTML +
-              '<meta name="theme-color" content="#eaeae5" />';
-          } 
-        }*/
+    // I know addListener is deprecated.
+    // addEventListener does not work here on iOS 13 and Safari 13,
+    // so using this for now. Web development is so fun!
 
-        let themeColor: THEME_COLOR = THEME_COLOR.LIGHT;
+    window.matchMedia("(prefers-color-scheme: dark)").addListener(function () {
+      let themeColor: THEME_COLOR = THEME_COLOR.LIGHT;
 
-        if (localStorage.forceTheme !== "true") {
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            localStorage.theme = "dark";
-            document.documentElement.classList.add("dark");
-            themeColor = THEME_COLOR.DARK;
-          } else {
-            localStorage.theme = "light";
-            document.documentElement.classList.remove("dark");
-            themeColor = THEME_COLOR.LIGHT;
-          }
+      if (localStorage.forceTheme !== "true") {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          localStorage.theme = "dark";
+          document.documentElement.classList.add("dark");
+          themeColor = THEME_COLOR.DARK;
         } else {
-          if (localStorage.theme === "dark") {
-            localStorage.theme = "dark";
-            document.documentElement.classList.add("dark");
-            themeColor = THEME_COLOR.DARK;
-          } else {
-            localStorage.theme = "light";
-            document.documentElement.classList.remove("dark");
-            themeColor = THEME_COLOR.LIGHT;
-          }
+          localStorage.theme = "light";
+          document.documentElement.classList.remove("dark");
+          themeColor = THEME_COLOR.LIGHT;
         }
+      } else {
+        if (localStorage.theme === "dark") {
+          localStorage.theme = "dark";
+          document.documentElement.classList.add("dark");
+          themeColor = THEME_COLOR.DARK;
+        } else {
+          localStorage.theme = "light";
+          document.documentElement.classList.remove("dark");
+          themeColor = THEME_COLOR.LIGHT;
+        }
+      }
 
-        document
-          .querySelector("meta[name=theme-color]")!
-          .setAttribute(
-            "content",
-            themeColor === THEME_COLOR.DARK
-              ? THEME_COLOR.DARK
-              : THEME_COLOR.LIGHT
-          );
-      });
+      document
+        .querySelector("meta[name=theme-color]")!
+        .setAttribute(
+          "content",
+          themeColor === THEME_COLOR.DARK ? THEME_COLOR.DARK : THEME_COLOR.LIGHT
+        );
+    });
 
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
   }, []);
