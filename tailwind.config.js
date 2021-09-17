@@ -48,7 +48,10 @@ module.exports = {
       maxHeight : {
         "102": "26rem",
         "108": "28rem"
-      }
+      },
+      screens: {
+        'hover-hover': {'raw': '(hover: hover)'},
+  }
     },
   },
   variants: {
