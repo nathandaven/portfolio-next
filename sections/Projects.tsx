@@ -41,7 +41,8 @@ export const Projects: FunctionComponent<Props> = ({ children }) => {
           <p>
             My final project for CS 2261 at Georgia Tech. A top down and
             side-scrolling RPG built in C and assembly for the Game Boy Advance.
-            Click details to play in the browser!
+            Click &quot;check it out&quot; and then &quot;Run Anyway&quot; to
+            play in the browser!
           </p>
         </ProjectCard>
 
