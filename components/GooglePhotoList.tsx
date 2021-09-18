@@ -50,8 +50,9 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
       );
 
       if (!shouldCancel && response.data && response.data.length > 0) {
-        setImages(response.data);
-        setLoadedImages(response.data.splice(0, view));
+        let fetched = response.data.reverse();
+        setImages(fetched);
+        setLoadedImages(fetched.splice(0, view));
       }
     };
     call();
