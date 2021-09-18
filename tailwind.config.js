@@ -35,6 +35,8 @@ module.exports = {
         codewhitedark: "var(--codewhitedark)",
         codepink: "var(--codepink)",
         codeorange: "var(--codeorange)",
+        headerlight: "var(--header--light)",
+        headerdark: "var(--header--dark)"
       },
       minHeight: {
         0: "0",

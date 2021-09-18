@@ -19,6 +19,9 @@
   --codewhitedark: #dcdcd6;
   --codepink: #e8236a;
   --codeorange: #fd971f;
+
+  --header--dark: rgba(30, 31, 28, 0.8);
+  --header--light: rgba(234, 234, 229, 0.8);
   /* Text-size styles */
   /* base size: default--text (18px) */
   --default--text: 1rem;

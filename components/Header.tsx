@@ -26,7 +26,8 @@ export const Header: FunctionComponent<Props> = ({
       checkScroll();
       let tag = "";
       if (window.pageYOffset > 300 || !isHomePage) {
-        tag = "bg-codewhite  dark:text-codewhite dark:bg-primarygrey shadow-md";
+        tag =
+          "bg-headerlight  dark:text-codewhite dark:bg-headerdark shadow-md";
       } else {
         tag = " text-primarygrey";
       }
@@ -72,10 +73,10 @@ export const Header: FunctionComponent<Props> = ({
     <>
       <header
         className={classNames(
-          "fixed top-0 left-0 right-0 z-50 justify-center items-center transition-all",
+          "fixed top-0 left-0 right-0 z-50 justify-center items-center transition-all backdrop-blur-md",
           color,
           !isHomePage
-            ? "bg-codewhite  dark:text-codewhite dark:bg-primarygrey shadow-md"
+            ? "bg-headerlight  dark:text-codewhite dark:bg-headerdark shadow-md"
             : "",
           className,
           show ? "block" : "hidden"
