@@ -27,7 +27,7 @@ export const Header: FunctionComponent<Props> = ({
       let tag = "";
       if (window.pageYOffset > 300 || !isHomePage) {
         tag =
-          "bg-headerlight  dark:text-codewhite dark:bg-headerdark shadow-md";
+          "bg-headerlight  dark:text-codewhite dark:bg-headerdark shadow-md  backdrop-blur-md";
       } else {
         tag = " text-primarygrey";
       }
@@ -35,6 +35,7 @@ export const Header: FunctionComponent<Props> = ({
     });
   }, [isHomePage]);
 
+  // not implemented
   function checkScroll() {
     /*
      ** Find the direction of scroll
@@ -73,10 +74,10 @@ export const Header: FunctionComponent<Props> = ({
     <>
       <header
         className={classNames(
-          "fixed top-0 left-0 right-0 z-50 justify-center items-center transition-all backdrop-blur-md",
+          "fixed top-0 left-0 right-0 z-50 justify-center items-center transition-all",
           color,
           !isHomePage
-            ? "bg-headerlight  dark:text-codewhite dark:bg-headerdark shadow-md"
+            ? "bg-headerlight  dark:text-codewhite dark:bg-headerdark shadow-md  backdrop-blur-md"
             : "",
           className,
           show ? "block" : "hidden"
