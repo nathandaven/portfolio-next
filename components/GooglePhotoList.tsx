@@ -91,9 +91,10 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
               <FontAwesomeIcon icon={faCircleNotch} spin />
             </div>
           }
+          endMessage={<div className="py-5"></div>}
           dataLength={images.length} //This is important field to render the next data
           next={fetchMoreData}
-          hasMore={true}
+          hasMore={images.length > 0}
           scrollThreshold={0.95}
         >
           <div
