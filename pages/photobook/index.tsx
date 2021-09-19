@@ -70,7 +70,7 @@ const Photobook: NextPage = () => {
           }}
         >
           <div className="my-5 text-left">
-            <div className="text-5xl md:text-7xl xl:text-9xl  w-full">
+            <div className="text-5xl md:text-7xl xl:text-9xl break-words w-full">
               <b>GALLERY</b>
             </div>
             <div className="text-xl md:text-2xl w-full ">

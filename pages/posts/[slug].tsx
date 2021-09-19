@@ -87,10 +87,12 @@ const Slug: FunctionComponent<Props> = ({ className, id, data, children }) => {
               alt="Post logo"
             />
             <div className="my-10 w-full text-left">
-              <h1 className="text-6xl pb-5">
+              <h1 className="text-6xl pb-5 break-words">
                 <b>{data.fields.title}</b>
               </h1>
-              <h4 className="py-2 text-2xl">{data.fields.description}</h4>
+              <h4 className="py-2 text-2xl break-words">
+                {data.fields.description}
+              </h4>
             </div>
           </motion.div>
 

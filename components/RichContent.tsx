@@ -70,7 +70,7 @@ const options = {
     [INLINES.HYPERLINK]: (node, children) => {
       return (
         <a
-          className="hover:underline break-all"
+          className="hover:underline break-words"
           href={node.data.uri}
           target="_blank"
           rel="noreferrer"

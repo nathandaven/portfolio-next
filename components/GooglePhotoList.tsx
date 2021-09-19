@@ -26,6 +26,7 @@ type Props = {
   galleryID: string;
   view: View;
   cropPreviews: boolean;
+  order: boolean;
   className?: string;
   id?: string;
 };
@@ -35,6 +36,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
   galleryID,
   view,
   cropPreviews,
+  order,
   className,
   id,
   children,
@@ -50,7 +52,12 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
       );
 
       if (!shouldCancel && response.data && response.data.length > 0) {
-        let fetched = response.data.reverse();
+        let fetched = response.data;
+
+        if (order) {
+          fetched = response.data.reverse();
+        }
+
         setImages(fetched);
         setLoadedImages(fetched.splice(0, view));
       }
@@ -102,8 +109,8 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
               view === View.LIST
                 ? "grid gap-4 grid-cols-1 "
                 : view === View.GRIDSMALL
-                ? "grid gap-4 grid-cols-1 lg:grid-cols-2"
-                : "grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-4"
+                ? "grid gap-4 grid-cols-1 md:grid-cols-2"
+                : "grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
             }
           >
             {loadedImages.map((src, index) => (

@@ -20,7 +20,7 @@ export const Title: FunctionComponent<Props> = ({
       <div className={classNames("", className)} id={id}>
         <div className="py-20 pb-10">
           <div className="text-left flex">
-            <h1 className="text-6xl font-bold">{text}:</h1>
+            <h1 className="text-6xl font-bold break-words">{text}:</h1>
           </div>
           <p className="font-mono pt-6 text-left">
             <span className="text-codepink">import</span> &#123; {text} &#125;

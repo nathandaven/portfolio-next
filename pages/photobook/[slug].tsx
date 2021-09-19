@@ -55,6 +55,7 @@ const Slug: NextPage<Props> = ({ data }) => {
       <GooglePhotoList
         galleryID={data.fields.googlePhotosId}
         view={view}
+        order={data.fields.order}
         cropPreviews={data.fields.cropPreviews}
       />
     );
@@ -115,10 +116,12 @@ const Slug: NextPage<Props> = ({ data }) => {
           >
             <div className="my-10 text-left flex flex-col sm:flex-row">
               <div className="w-full text-left">
-                <h1 className="text-6xl pb-5">
+                <h1 className="text-6xl pb-5 break-words">
                   <b>{data.fields.title}</b>
                 </h1>
-                <h4 className="py-2  text-2xl">{data.fields.description}</h4>
+                <h4 className="py-2 break-words text-2xl">
+                  {data.fields.description}
+                </h4>
               </div>
 
               {/* view selector */}
