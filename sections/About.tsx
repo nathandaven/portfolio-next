@@ -27,46 +27,42 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                 <b>Hi!</b>
               </h1>
 
-              <p className="py-1">
-                I am an aspiring front-end developer and UI/UX designer located
-                in <span className="text-codepink">Midtown, Atlanta</span>.
+              <p className="py-4">
+                I am a software engineer and UI/UX designer located in{" "}
+                <span className="text-codepink">Atlanta, Georgia</span>.
               </p>
 
-              <p className="py-1">
-                I currently attend the{" "}
+              <p className="py-4">
+                I just graduated in Spring 2022 with Highest Honors from the{" "}
                 <span className="text-codemustard">
                   Georgia Institute of Technology
                 </span>{" "}
-                for <span className="text-codepink">Computational Media</span>,
-                an effort to create a more applicable Computer Science degree by
-                applying creative outlets to my technical studies. I am a senior
-                and I plan to graduate{" "}
-                <span className="text-codegreen">Spring 2022</span>.
+                for <span className="text-codepink">Computational Media</span>!
+                My threads were Media (CS) and Interaction Design (UI/UX). I
+                really enjoyed worked as a Computing TA for CS 2261 during the
+                last leg of my degree, as well as getting involved with the
+                student radio station, WREK Radio.
+              </p>
+              <p className="py-4">
+                As of Summer 2022, I work full-time at{" "}
+                <a href="https://www.ncr.com" className="text-codeblue">
+                  NCR Global
+                </a>{" "}
+                as a Software Engineer. During this period, I hope to refine my
+                skills, and absorb as much knowledge as possible :)
               </p>
 
-              <p className="py-1">
-                For the past year I have been working for{" "}
-                <a
-                  href="https://www.GovernmentWindow.com"
-                  className="text-codeblue"
-                >
-                  Government Window
-                </a>
-                , a local software company that manages payments for government
-                clients. Over the past year I have redesigned and coded out our
-                front-end design language for 2021, shipping out at least a
-                dozen websites.
+              <p className="py-4">
+                My current goals are to save some money, travel, and get my
+                loans paid off! In my free time, I like to produce music, cycle,
+                skateboard, and drink coffee (or beer)! Thanks for checking out
+                my website 😄
               </p>
 
-              <p className="py-1">
-                In my free time, I like to produce music, skateboard, and drink
-                coffee! Thanks for checking out my website 😄
-              </p>
-
-              <p className="py-1 pt-8">
+              <p className="py-4">
                 Looking for my resume? Find it{" "}
                 <a
-                  href="https://drive.google.com/file/d/1KvhxySLwIZCBcyeNAgIW_US8zkxeZ64r/view?usp=sharing"
+                  href="https://drive.google.com/file/d/13cUw_4xpG6vXAv0yI5LGagOq_D6VhRJR/view?usp=sharing"
                   target="_blank"
                   rel="noreferrer"
                   className="text-codeorange hover:underline"
@@ -77,7 +73,7 @@ export const About: FunctionComponent<Props> = ({ children }) => {
               </p>
             </div>
 
-            <div className="pt-8 ">
+            <div className="py-4 ">
               <p className="font-mono text-codewhite">
                 <span className="text-codepink">export default </span>
                 <span className="text-codegreen underline">About</span>;
