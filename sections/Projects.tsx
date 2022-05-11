@@ -7,6 +7,8 @@ import { ProjectCard } from "../components/ProjectCard";
 //Media
 import GWPhoto from "../public/resources/gw.png";
 import TravelerPhoto from "../public/resources/traveler.png";
+import UsentiPhoto from "../public/resources/usenti.png";
+import AudioPhoto from "../public/resources/audio-simulator.png";
 import BarsPhoto from "../public/resources/bars-photo.png";
 import RayTracerPhoto from "../public/resources/jsraytracer-photo.png";
 import HearatalePhoto from "../public/resources/hearatale-photo.png";
@@ -32,6 +34,35 @@ export const Projects: FunctionComponent<Props> = ({ children }) => {
 
       <div className="pb-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-2 ">
         <ProjectCard
+          title="Computer Audio Simulator"
+          date="Spring 2022"
+          photo={AudioPhoto}
+          github="https://github.com/nathandaven/cs4590-simulator"
+          link="https://github.com/nathandaven/cs4590-simulator/blob/master/readme.pdf"
+        >
+          <p>
+            My final project for CS4590 at Georgia Tech. This project uses
+            Processing and Beads to create a realistic sonified audio simulator
+            to simulate skateboarding over object in various conditions.
+          </p>
+        </ProjectCard>
+
+        <ProjectCard
+          title="Usenti for Mac"
+          date="Fall 2021"
+          photo={UsentiPhoto}
+          github="https://github.com/nathandaven/usenti-mac"
+          link="https://github.com/nathandaven/usenti-mac/releases/tag/v0.4.0"
+        >
+          <p>
+            I used Wine to package Usenti, a sprite editing application for the
+            GameBoy Advance, for MacOS and Linux operating systems. This was a
+            great benefit to students in CS 2261 as this software is quite old
+            and Windows only.
+          </p>
+        </ProjectCard>
+
+        <ProjectCard
           title="Traveler: The Quest for Mead"
           date="Fall 2020"
           photo={TravelerPhoto}
@@ -43,20 +74,6 @@ export const Projects: FunctionComponent<Props> = ({ children }) => {
             side-scrolling RPG built in C and assembly for the Game Boy Advance.
             Click &quot;check it out&quot; and then &quot;Run Anyway&quot; to
             play in the browser!
-          </p>
-        </ProjectCard>
-
-        <ProjectCard
-          title="Audio Responsive Bars"
-          date="Fall 2019"
-          photo={BarsPhoto}
-          github="https://github.com/nathandaven/audio-responsive-bars"
-          link="https://nathandaven.github.io/audio-responsive-bars/"
-        >
-          <p>
-            A reactive audio engine for the aframe.io framework. The bars will
-            react to the amplitude of three selected music tracks. Created for
-            the class LMC 2700.
           </p>
         </ProjectCard>
 
@@ -88,6 +105,20 @@ export const Projects: FunctionComponent<Props> = ({ children }) => {
             Tale, a teaching non-profit. Using React-Native, we built the third
             grade portion of the app. This app teaches contractions using visual
             and auditory cues, with challenging quizzes and informative lessons.
+          </p>
+        </ProjectCard>
+
+        <ProjectCard
+          title="Audio Responsive Bars"
+          date="Fall 2019"
+          photo={BarsPhoto}
+          github="https://github.com/nathandaven/audio-responsive-bars"
+          link="https://nathandaven.github.io/audio-responsive-bars/"
+        >
+          <p>
+            A reactive audio engine for the aframe.io framework. The bars will
+            react to the amplitude of three selected music tracks. Created for
+            the class LMC 2700.
           </p>
         </ProjectCard>
       </div>

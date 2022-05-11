@@ -7,6 +7,8 @@ import { DesignCard } from "../components/DesignCard";
 
 //Media
 import GWPhoto from "../public/resources/gw-site-photo.png";
+import PhotoBookPhoto from "../public/resources/photobook.jpg";
+import HomeParkPhoto from "../public/resources/homepark.png";
 import GWCardPadPhoto from "../public/resources/card-pad-photo.png";
 import PauldingPhoto from "../public/resources/paulding-photo.png";
 import MaconBibbPhoto from "../public/resources/maconbibb-photo.png";
@@ -28,6 +30,34 @@ export const Design: FunctionComponent<Props> = ({ children }) => {
     <Page variant="DARK" id="design">
       <Title text="Design" />
       <div className="pb-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-2 ">
+        <DesignCard
+          title="Reclaim Home Park"
+          date="Spring 2022"
+          photo={HomeParkPhoto}
+          link="https://drive.google.com/file/d/1WmFoMpn1YrAMAJuynuwrB8yWhFQZ5aWk/view?usp=sharing"
+        >
+          <p>
+            For my senior Capstone class, I worked closely with several group
+            members on a co-design effort in Home Park, to create safer spaces
+            and to research the effects community involvement has on the safety
+            of neighborhoods and cities.
+          </p>
+        </DesignCard>
+
+        <DesignCard
+          title="Finding Peace: A Photobook"
+          date="Fall 2021"
+          photo={PhotoBookPhoto}
+          link="https://drive.google.com/file/d/1DhxukjCNuf1b4saqeEg_ClHmZHHzYj62/view?usp=sharing"
+        >
+          <p>
+            This was my first time creating a printed zine for my photography. I
+            created this booklet for LMC 3402 at Georgia Tech, and used Adobe
+            InDesign and Adobe Illustrator to design the layout. All photos shot
+            on 35mm film, and scanned at the Photo Spot.
+          </p>
+        </DesignCard>
+
         <DesignCard
           title="Macon-Bibb County Tax"
           date="May 2021"
