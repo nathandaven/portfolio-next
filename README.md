@@ -1,7 +1,7 @@
 
 ## My Portfolio Site @ nathandaven.com
 
-This is my portfolio site created with Next.JS, Tailwind CSS, Framer Motion, and Contentful. The site uses SSR to generate static pages from React code, based on my content hosted on Contentful. Converted this from my original CRA and JS portfolio design, in order to learn TypeScript and Next.JS. Overall, had a good time!
+This is my portfolio site created with Next.JS, Tailwind CSS, Framer Motion, and Contentful. The site uses SSR to generate static pages from React code, based on my content hosted on Contentful. My photo albums use an api to parse direct links from public Google Photos albums I've created, and display them using a lazy loader to save on bandwidth. Converted this from my original CRA and JS portfolio design, in order to learn TypeScript and Next.JS. Overall, had a good time!
 
 Check it out at https://nathandaven.com!
 
