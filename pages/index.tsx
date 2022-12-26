@@ -11,7 +11,6 @@ import { Projects } from "../sections/Projects";
 import { Design } from "../sections/Design";
 
 import { Meta } from "../components/Meta";
-import { Analytics } from "@vercel/analytics/react";
 
 const Home: NextPage = () => {
   return (
@@ -26,7 +25,6 @@ const Home: NextPage = () => {
       <Projects />
       <Design />
       <Footer className="dark:bg-darkgrey" />
-      <Analytics />
     </>
   );
 };
