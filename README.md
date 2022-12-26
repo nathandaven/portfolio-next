@@ -1,13 +1,11 @@
-<img width="1639" alt="Screenshot 2022-12-26 at 1 18 41 AM" src="https://user-images.githubusercontent.com/25095231/209511003-39f6f8d2-33af-4c7b-a416-d9521559e8dc.png">
 
 ## My Portfolio Site @ nathandaven.com
 
-This is my portfolio site created with Next.JS, Tailwind CSS, Framer Motion, and Contentful. The site uses SSR to generate static pages from React code, based on my content hosted on Contentful. 
+This is my portfolio site created with Next.JS, Tailwind CSS, Framer Motion, and Contentful. The site uses SSR to generate static pages from React code, based on my content hosted on Contentful. Converted this from my original CRA and JS portfolio design, in order to learn TypeScript and Next.JS. Overall, had a good time!
 
+Check it out at https://nathandaven.com!
 
-Converted this from my original CRA and JS portfolio design, in order to learn TypeScript and Next.JS. Overall, had a good time!
-
-Check it out at https://nathandaven.com.
+<img width="1639" alt="Screenshot 2022-12-26 at 1 18 41 AM" src="https://user-images.githubusercontent.com/25095231/209511003-39f6f8d2-33af-4c7b-a416-d9521559e8dc.png">
 
 
 ## Running on local
