@@ -61,7 +61,7 @@ const Slug: NextPage<Props> = ({ data }) => {
     );
   }
 
-  if (!data) {
+  if (data == undefined) {
     return (
       <>
         <Meta
@@ -73,102 +73,103 @@ const Slug: NextPage<Props> = ({ data }) => {
 
         <Page variant="LIGHT" id="loading">
           <div className="w-full flex justify-center text-5xl">
+            loading...
             <FontAwesomeIcon icon={faCircleNotch} spin />
           </div>
         </Page>
       </>
     );
-  }
-
-  return (
-    <>
-      <Meta
-        title={data.fields.title + " | Nathan Davenport's Photobook"}
-        description={data.fields.description}
-        link={data.fields.slug}
-        imageURL={"http:" + data.fields.coverPhoto.fields.file.url}
-      />
-      <div>
-        <Header isHomePage={false} />
-        <Page
-          variant="LIGHT"
-          id="photobook"
-          className="dark:bg-darkgrey min-h-0"
-        >
-          <div className="my-20"></div>
-          <motion.div
-            className="w-full"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {
-                scale: 0.8,
-                opacity: 0,
-              },
-              visible: {
-                scale: 1,
-                opacity: 1,
-                transition: {
-                  delay: 0.1,
-                },
-              },
-            }}
+  } else {
+    return (
+      <>
+        <Meta
+          title={data.fields.title + " | Nathan Davenport's Photobook"}
+          description={data.fields.description}
+          link={data.fields.slug}
+          imageURL={"http:" + data.fields.coverPhoto.fields.file.url}
+        />
+        <div>
+          <Header isHomePage={false} />
+          <Page
+            variant="LIGHT"
+            id="photobook"
+            className="dark:bg-darkgrey min-h-0"
           >
-            <div className="my-10 text-left flex flex-col sm:flex-row">
-              <div className="w-full text-left">
-                <h1 className="text-6xl pb-5 break-words">
-                  <b>{data.fields.title}</b>
-                </h1>
-                <h4 className="py-2 break-words text-2xl">
-                  {data.fields.description}
-                </h4>
-              </div>
+            <div className="my-20"></div>
+            <motion.div
+              className="w-full"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {
+                  scale: 0.8,
+                  opacity: 0,
+                },
+                visible: {
+                  scale: 1,
+                  opacity: 1,
+                  transition: {
+                    delay: 0.1,
+                  },
+                },
+              }}
+            >
+              <div className="my-10 text-left flex flex-col sm:flex-row">
+                <div className="w-full text-left">
+                  <h1 className="text-6xl pb-5 break-words">
+                    <b>{data.fields.title}</b>
+                  </h1>
+                  <h4 className="py-2 break-words text-2xl">
+                    {data.fields.description}
+                  </h4>
+                </div>
 
-              {/* view selector */}
-              <div className="text-gray-900 dark:text-gray-500 text-opacity-50 text-2xl  hidden lg:block">
-                <div className=" py-5 flex justify-between">
-                  <FontAwesomeIcon
-                    className={classNames(
-                      "mx-5 transform hover:scale-110 cursor-pointer",
-                      view === View.LIST
-                        ? "text-primarygrey dark:text-codewhite"
-                        : ""
-                    )}
-                    icon={faAlignJustify}
-                    onClick={() => setView(View.LIST)}
-                  />
-                  <FontAwesomeIcon
-                    className={classNames(
-                      "mx-5 transform hover:scale-110 cursor-pointer",
-                      view === View.GRIDSMALL
-                        ? "text-primarygrey dark:text-codewhite "
-                        : ""
-                    )}
-                    icon={faThLarge}
-                    onClick={() => setView(View.GRIDSMALL)}
-                  />
-                  <FontAwesomeIcon
-                    className={classNames(
-                      "mx-5 transform hover:scale-110 cursor-pointer",
-                      view === View.GRIDLARGE
-                        ? "text-primarygrey dark:text-codewhite"
-                        : ""
-                    )}
-                    icon={faTh}
-                    onClick={() => setView(View.GRIDLARGE)}
-                  />
+                {/* view selector */}
+                <div className="text-gray-900 dark:text-gray-500 text-opacity-50 text-2xl  hidden lg:block">
+                  <div className=" py-5 flex justify-between">
+                    <FontAwesomeIcon
+                      className={classNames(
+                        "mx-5 transform hover:scale-110 cursor-pointer",
+                        view === View.LIST
+                          ? "text-primarygrey dark:text-codewhite"
+                          : ""
+                      )}
+                      icon={faAlignJustify}
+                      onClick={() => setView(View.LIST)}
+                    />
+                    <FontAwesomeIcon
+                      className={classNames(
+                        "mx-5 transform hover:scale-110 cursor-pointer",
+                        view === View.GRIDSMALL
+                          ? "text-primarygrey dark:text-codewhite "
+                          : ""
+                      )}
+                      icon={faThLarge}
+                      onClick={() => setView(View.GRIDSMALL)}
+                    />
+                    <FontAwesomeIcon
+                      className={classNames(
+                        "mx-5 transform hover:scale-110 cursor-pointer",
+                        view === View.GRIDLARGE
+                          ? "text-primarygrey dark:text-codewhite"
+                          : ""
+                      )}
+                      icon={faTh}
+                      onClick={() => setView(View.GRIDLARGE)}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-          <div className="min-h-screen w-full">{renderView()}</div>
+            </motion.div>
+            <div className="min-h-screen w-full">{renderView()}</div>
 
-          <div className="py-2"></div>
-        </Page>
-        <Footer />
-      </div>
-    </>
-  );
+            <div className="py-2"></div>
+          </Page>
+          <Footer />
+        </div>
+      </>
+    );
+  }
 };
 
 export default Slug;

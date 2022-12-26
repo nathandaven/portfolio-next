@@ -47,9 +47,7 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
   React.useEffect(() => {
     let shouldCancel = false;
     const call = async () => {
-      const response = await axios.get(
-        "https://simple-vine-knife.glitch.me/" + galleryID
-      );
+      const response = await axios.get("../api/" + galleryID);
 
       if (!shouldCancel && response.data && response.data.length > 0) {
         let fetched = response.data;
