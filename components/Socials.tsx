@@ -82,7 +82,7 @@ export const Socials: FunctionComponent<Props> = ({
           />
         </a>
         <a
-          href="mailto:nathandaven@gmail.com"
+          href="mailto:nathan@nathandaven.com"
           className="text-xl motion-safe:hover:scale-110  pl-2"
         >
           <FontAwesomeIcon
