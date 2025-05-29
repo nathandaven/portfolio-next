@@ -37,7 +37,7 @@ export const DesignCard: FunctionComponent<Props> = ({
   }
 
   return (
-    <>
+    <div className={className}>
       <motion.div
         initial="hidden"
         animate="visible"
@@ -96,7 +96,7 @@ export const DesignCard: FunctionComponent<Props> = ({
           </div>
         </Card>
       </motion.div>
-    </>
+    </div>
   );
 };
 

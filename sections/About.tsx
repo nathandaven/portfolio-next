@@ -21,25 +21,25 @@ export const About: FunctionComponent<Props> = ({ children }) => {
       <Card variant="DARK">
         {/* <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-2  font-mono"> */}
         <div className=" w-full flex content-evenly lg:flex-row flex-col  font-mono">
-          <div className="order-2 lg:order-1 w-full">
+          <div className="order-2 flex-1 lg:order-1 w-full ">
             <div className="">
               <p className="py-4 pb-6 text-xl">
                 <span className="">
                   Software engineer with{" "}
-                  <b className="text-codepink">3 years</b> of experience
+                  <b className="text-codeblue">3 years</b> of experience
                   building full-stack applications using{" "}
-                  <span className="text-codemustard">
+                  <span className="text-codeblue">
                     <b className="">TypeScript</b>
                   </span>
                   ,{" "}
-                  <span className="text-codemustard">
+                  <span className="text-codeblue">
                     <b className="">React</b>
                   </span>
                   , and{" "}
-                  <span className="text-codemustard">
+                  <span className="text-codeblue">
                     <b className="">Kubernetes</b>
                   </span>
-                  . Currently at NCR Voyix.
+                  . Currently at <b className="text-purple-300">NCR Voyix</b>.
                 </span>
               </p>
               <p className="py-4 pb-6">
@@ -132,6 +132,17 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                       linkedin.com/in/nathandaven
                     </a>
                   </li>
+                  <li>
+                    All my links:{" "}
+                    <a
+                      href="https://nathandaven.com/links"
+                      className="text-codeblue hover:font-bold"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      nathandaven.com/links
+                    </a>
+                  </li>
                 </ul>
               </p>
             </div>
@@ -143,9 +154,9 @@ export const About: FunctionComponent<Props> = ({ children }) => {
               </p>
             </div>
           </div>
-          <div className="px-8 order-1 w-full lg:order-2 flex items-center justify-center lg:max-w-xl">
+          <div className="basis-1 px-8 order-1 w-full lg:order-2 flex items-center self-center max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md justify-center pb-8 lg:pb-0">
             <Image
-              className="bg-codewhite p-1 rounded-full  shadow-lg"
+              className="bg-codewhite p-1 rounded-full shadow-lg justify-self-center "
               src={ProfilePhoto}
               alt="Portrait of Nathan Davenport"
             />

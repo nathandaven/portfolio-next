@@ -9,6 +9,7 @@ import GWPhoto from "../public/resources/gw.png";
 import TravelerPhoto from "../public/resources/traveler.png";
 import UsentiPhoto from "../public/resources/usenti.png";
 import AudioPhoto from "../public/resources/audio-simulator.png";
+import WebsitePhoto from "../public/resources/nathandaven.com.png";
 import BarsPhoto from "../public/resources/bars-photo.png";
 import RayTracerPhoto from "../public/resources/jsraytracer-photo.png";
 import HearatalePhoto from "../public/resources/hearatale-photo.png";
@@ -32,7 +33,21 @@ export const Projects: FunctionComponent<Props> = ({ children }) => {
     <Page variant="LIGHT" id="projects">
       <Title text="Projects" />
 
-      <div className="pb-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-2 ">
+      <div className="pb-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-2 grid-col">
+        <ProjectCard
+          title="nathandaven.com"
+          date="Fall 2024"
+          photo={WebsitePhoto}
+          github="https://github.com/nathandaven/bynathandaven"
+          link="https://nathandaven.com"
+        >
+          <p>
+            I host a website for written versions of my editorial content on
+            YouTube. The website is built using NextJS, MDX Markdown processing,
+            and Tailwind, hosted via Vercel and Cloudfare.
+          </p>
+        </ProjectCard>
+
         <ProjectCard
           title="Computer Audio Simulator"
           date="Spring 2022"
@@ -44,21 +59,6 @@ export const Projects: FunctionComponent<Props> = ({ children }) => {
             My final project for CS4590 at Georgia Tech. This project uses
             Processing and Beads to create a realistic sonified audio simulator
             to simulate skateboarding over object in various conditions.
-          </p>
-        </ProjectCard>
-
-        <ProjectCard
-          title="Usenti for Mac"
-          date="Fall 2021"
-          photo={UsentiPhoto}
-          github="https://github.com/nathandaven/usenti-mac"
-          link="https://github.com/nathandaven/usenti-mac/releases/tag/v0.4.0"
-        >
-          <p>
-            I used Wine to package Usenti, a sprite editing application for the
-            GameBoy Advance, for MacOS and Linux operating systems. This was a
-            great benefit to students in CS 2261 as this software is quite old
-            and Windows only.
           </p>
         </ProjectCard>
 

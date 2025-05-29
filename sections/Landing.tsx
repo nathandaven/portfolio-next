@@ -42,12 +42,12 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
               <div className="  ">
                 <div className="flex text-left pt-5">
                   <h2 className="text-3xl  md:text-4xl lg:text-5xl font-bold text-darkgrey">
-                    Hi traveler!
+                    Software Engineer
                   </h2>
                 </div>
                 <div className="flex text-left">
-                  <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold text-darkgrey">
-                    Meet Nathan Davenport:
+                  <h1 className="text-6xl sm:text-8xl lg:text-[10rem] font-bold text-darkgrey">
+                    Nathan Davenport
                   </h1>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                   }}
                 >
                   <h4 className="xl:text-5xl sm:text-3xl text-xl  font-regular">
-                    Music Production
+                    TypeScript
                   </h4>
                 </motion.div>
               </div>
@@ -79,7 +79,7 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                   }}
                 >
                   <h4 className="xl:text-5xl sm:text-3xl text-xl  font-regular">
-                    UI/UX Design
+                    React
                   </h4>
                 </motion.div>
                 <motion.div
@@ -91,7 +91,7 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                   }}
                 >
                   <h4 className="pt-10  xl:text-3xl sm:text-2xl text-xl  font-regular">
-                    Photo & Video
+                    Kubernetes
                   </h4>
                 </motion.div>
                 <motion.div
@@ -103,7 +103,7 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                   }}
                 >
                   <h4 className="pt-20 xl:text-5xl sm:text-3xl text-xl  font-regular">
-                    Computer Science
+                    Node.js
                   </h4>
                 </motion.div>
               </div>
@@ -117,7 +117,7 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                   }}
                 >
                   <h4 className="xl:text-4xl sm:text-2xl text-xl  font-regular">
-                    Game Development
+                    Python
                   </h4>
                 </motion.div>
               </div>
@@ -132,7 +132,7 @@ export const Landing: FunctionComponent<Props> = ({ children }) => {
                   }}
                 >
                   <h4 className="xl:text-4xl sm:text-2xl text-xl  font-regular">
-                    Front-End Development
+                    Java
                   </h4>
                 </motion.div>
               </div>
