@@ -23,53 +23,88 @@ export const About: FunctionComponent<Props> = ({ children }) => {
         <div className=" w-full flex content-evenly lg:flex-row flex-col  font-mono">
           <div className="order-2 lg:order-1 w-full">
             <div className="">
-              <h1 className="py-2 pb-8 text-4xl font-sans">
-                <b>Hi!</b>
-              </h1>
-
-              <p className="py-4">
-                I am a software engineer and UI/UX designer located in{" "}
-                <span className="text-codepink">Atlanta, Georgia</span>.
+              <p className="py-4 pb-6 text-xl">
+                <span className="">
+                  Software engineer with{" "}
+                  <b className="text-codepink">3 years</b> of experience
+                  building full-stack applications using{" "}
+                  <span className="text-codemustard">
+                    <b className="">TypeScript</b>
+                  </span>
+                  ,{" "}
+                  <span className="text-codemustard">
+                    <b className="">React</b>
+                  </span>
+                  , and{" "}
+                  <span className="text-codemustard">
+                    <b className="">Kubernetes</b>
+                  </span>
+                  . Currently at NCR Voyix.
+                </span>
               </p>
-
-              <p className="py-4">
-                I just graduated in Spring 2022 with Highest Honors from the{" "}
-                <span className="text-codemustard">
-                  Georgia Institute of Technology
-                </span>{" "}
-                for <span className="text-codepink">Computational Media</span>!
-                My threads were Media (CS) and Interaction Design (UI/UX). I
-                really enjoyed worked as a Computing TA for CS 2261 during the
-                last leg of my degree, as well as getting involved with the
-                student radio station, WREK Radio.
+              <p className="py-4 pb-6">
+                <h4 className="text-xl text-codegreen">
+                  <b>Current Role</b>
+                </h4>
+                <ul>
+                  <li className="py-0.5">
+                    <b className="">NCR Voyix</b> – Software Engineer II (Oct.
+                    2023 - Present)
+                  </li>
+                </ul>
               </p>
-              <p className="py-4">
-                As of Summer 2022, I work full-time at{" "}
-                <a href="https://www.ncr.com" className="text-codeblue">
-                  NCR Global
-                </a>{" "}
-                as a Software Engineer. During this period, I hope to refine my
-                skills, and absorb as much knowledge as possible :)
+              <p className="py-4 pb-6">
+                <h4 className="text-xl text-codegreen">
+                  <b>Previous Roles</b>
+                </h4>
+                <ul>
+                  <li className="py-0.5">
+                    <b className="">NCR Corporation</b> – Software Engineer I
+                    (June 2022 - Oct. 2023)
+                  </li>
+                  <li className="py-0.5">
+                    <b className="">Georgia Institute of Technology</b> – CS
+                    2261 Teaching Assistant (Aug. 2021 - May 2022)
+                  </li>
+                  <li className="py-0.5">
+                    <b className="">Government Window, LLC.</b> – Software
+                    Engineering Intern (Jan. 2021 - Aug. 2021)
+                  </li>
+                </ul>
               </p>
-
-              <p className="py-4">
-                My current goals are to save some money, travel, and get my
-                loans paid off! In my free time, I like to produce music, cycle,
-                skateboard, and drink coffee (or beer)! Thanks for checking out
-                my website 😄
+              <p className="py-4 pb-6">
+                <h4 className="text-xl text-codegreen">
+                  <b>Skills</b>
+                </h4>
+                <ul>
+                  <li className="py-0.5">
+                    <b className="">Languages</b> – TypeScript, JavaScript,
+                    Python, Java, PHP, HTML/CSS
+                  </li>
+                  <li className="py-0.5">
+                    <b className="">Frameworks</b> – Node.js, React, NestJS,
+                    RxJS, Redux, Next.js, Redis, Cypress, Jest, Gherkin
+                  </li>
+                  <li className="py-0.5">
+                    <b className="">Tools</b> – Docker, Kubernetes, Git, GitHub
+                    Actions, MQTT, Redis, PostgreSQL, REST, Agile/Scrum
+                  </li>
+                  <li className="py-0.5">
+                    <b className="">Software</b> – VS Code, IntelliJ, Google
+                    Cloud Platform (GCP), Jira, Confluence, Figma
+                  </li>
+                </ul>
               </p>
-
-              <p className="py-4">
-                Looking for my resume? Find it{" "}
-                <a
-                  href="https://drive.google.com/file/d/13cUw_4xpG6vXAv0yI5LGagOq_D6VhRJR/view?usp=sharing"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-codeorange hover:underline"
-                >
-                  <b>here</b>
-                </a>
-                .
+              <p className="py-4 pb-6">
+                <h4 className="text-xl text-codegreen">
+                  <b>Education</b>
+                </h4>
+                <ul>
+                  <li className="py-0.5">
+                    <b className="">Georgia Institute of Technology</b> – B.S.
+                    in Computational Media (Grad. May 2022)
+                  </li>
+                </ul>
               </p>
             </div>
 
@@ -80,7 +115,7 @@ export const About: FunctionComponent<Props> = ({ children }) => {
               </p>
             </div>
           </div>
-          <div className="px-8 order-1 w-full lg:order-2 flex items-center justify-center">
+          <div className="px-8 order-1 w-full lg:order-2 flex items-center justify-center lg:max-w-xl">
             <Image
               className="bg-codewhite p-1 rounded-full  shadow-lg"
               src={ProfilePhoto}

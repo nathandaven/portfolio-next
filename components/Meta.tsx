@@ -19,7 +19,7 @@ export const Meta: FunctionComponent<Props> = ({
 }) => {
   return (
     <Head>
-      <title>{title ? title : "Nathan Davenport's Portfolio"}</title>
+      <title>{title ? title : "Nathan Davenport – Software Portfolio"}</title>
       <link rel="icon" href="/favicon.ico" />
       <meta charSet="utf-8" />
       <link rel="icon" href="/favicon.ico" />
@@ -33,11 +33,11 @@ export const Meta: FunctionComponent<Props> = ({
         content={
           description
             ? description
-            : "Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
+            : "Software engineer with 3 years of experience building full-stack applications using TypeScript, React, and Kubernetes. Currently at NCR Voyix."
         }
       />
 
-      <link rel="canonical" href={link ? link : "https://nathandaven.com"} />
+      <link rel="canonical" href={link ? link : "https://nathandaven.dev"} />
       <meta name="robots" content="index, follow" />
 
       <meta property="og:type" content="website" />
@@ -50,7 +50,7 @@ export const Meta: FunctionComponent<Props> = ({
         content={
           description
             ? description
-            : "Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
+            : "Software engineer with 3 years of experience building full-stack applications using TypeScript, React, and Kubernetes. Currently at NCR Voyix."
         }
       />
       <meta
@@ -59,7 +59,7 @@ export const Meta: FunctionComponent<Props> = ({
       />
       <meta
         property="og:url"
-        content={link ? link : "https://nathandaven.com"}
+        content={link ? link : "https://nathandaven.dev"}
       />
       <meta
         property="og:site_name"
@@ -75,7 +75,7 @@ export const Meta: FunctionComponent<Props> = ({
         content={
           description
             ? description
-            : "Nathan Davenport is an aspiring front-end developer, UI/UX designer, and Georgia Tech student located in Midtown, Atlanta."
+            : "Software engineer with 3 years of experience building full-stack applications using TypeScript, React, and Kubernetes. Currently at NCR Voyix."
         }
       />
       <meta

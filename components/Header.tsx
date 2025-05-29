@@ -96,25 +96,6 @@ export const Header: FunctionComponent<Props> = ({
             </div>
           </div>
 
-          {/* Sections */}
-          <div className="flex flex-auto">
-            <Link href="/" passHref>
-              <a className="flex-auto text-center transform hover:scale-110">
-                Home
-              </a>
-            </Link>
-            <Link href="/photobook" passHref>
-              <a className="flex-auto text-center transform hover:scale-110">
-                Photobook
-              </a>
-            </Link>
-            <Link href="/posts" passHref>
-              <a className="flex-auto text-center transform hover:scale-110">
-                Blog
-              </a>
-            </Link>
-          </div>
-
           {/* Social Icons */}
           <div className="flex-1 text-right hidden md:contents">
             <Socials />
