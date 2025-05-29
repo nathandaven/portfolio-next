@@ -30,7 +30,7 @@ export const Page: FunctionComponent<Props> = ({
     >
       <div
         className={classNames(
-          "container mx-auto px-4 xl:px-20 min-h-dvh flex justify-around items-baseline text-center flex-col ",
+          "container mx-auto px-4 xl:px-20 min-h-screen flex justify-around items-baseline text-center flex-col ",
           className
         )}
       >
