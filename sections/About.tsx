@@ -43,7 +43,7 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                 </span>
               </p>
               <p className="py-4 pb-6">
-                <h4 className="text-xl text-codegreen">
+                <h4 className="text-xl text-codegreen py-0.5">
                   <b>Current Role</b>
                 </h4>
                 <ul>
@@ -54,7 +54,7 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                 </ul>
               </p>
               <p className="py-4 pb-6">
-                <h4 className="text-xl text-codegreen">
+                <h4 className="text-xl text-codegreen py-0.5">
                   <b>Previous Roles</b>
                 </h4>
                 <ul>
@@ -73,7 +73,7 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                 </ul>
               </p>
               <p className="py-4 pb-6">
-                <h4 className="text-xl text-codegreen">
+                <h4 className="text-xl text-codegreen py-0.5">
                   <b>Skills</b>
                 </h4>
                 <ul>
@@ -96,13 +96,41 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                 </ul>
               </p>
               <p className="py-4 pb-6">
-                <h4 className="text-xl text-codegreen">
+                <h4 className="text-xl text-codegreen py-0.5">
                   <b>Education</b>
                 </h4>
                 <ul>
                   <li className="py-0.5">
                     <b className="">Georgia Institute of Technology</b> – B.S.
                     in Computational Media (Grad. May 2022)
+                  </li>
+                </ul>
+              </p>
+
+              <p className="py-4 pb-6">
+                <h4 className="text-xl text-codegreen py-0.5 ">
+                  <b>Contact me</b>
+                </h4>
+                <ul>
+                  <li>
+                    Email me at:{" "}
+                    <a
+                      href="mailto:work@nathandaven.com"
+                      className="text-codeblue  hover:font-bold"
+                    >
+                      work@nathandaven.com
+                    </a>
+                  </li>
+                  <li>
+                    Find me on LinkedIn:{" "}
+                    <a
+                      href="https://linkedin.com/in/nathandaven"
+                      className="text-codeblue hover:font-bold"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      linkedin.com/in/nathandaven
+                    </a>
                   </li>
                 </ul>
               </p>

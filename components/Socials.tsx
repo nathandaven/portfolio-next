@@ -60,7 +60,7 @@ export const Socials: FunctionComponent<Props> = ({
           />
         </a>
         <a
-          href="https://www.youtube.com/user/thoseweirdpeoples"
+          href="https://www.youtube.com/@nathandaven"
           className="text-xl motion-safe:hover:scale-110  pl-2"
           target="_blank"
           rel="noreferrer"
@@ -82,7 +82,7 @@ export const Socials: FunctionComponent<Props> = ({
           />
         </a>
         <a
-          href="mailto:nathan@nathandaven.dev"
+          href="mailto:work@nathandaven.com"
           className="text-xl motion-safe:hover:scale-110  pl-2"
         >
           <FontAwesomeIcon
