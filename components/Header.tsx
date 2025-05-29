@@ -83,9 +83,9 @@ export const Header: FunctionComponent<Props> = ({
         )}
         id={id}
       >
-        <nav className="container mx-auto px-4 xl:px-20 flex justify-center items-center h-16  ">
+        <nav className="container mx-auto px-4 xl:px-20  justify-center items-center h-16  hidden xs:flex ">
           {/* Logo / title */}
-          <div className="flex-1 text-left  hidden sm:contents">
+          <div className="flex-1 text-left contents">
             <div className="flex-1 flex ">
               <Link href="/" passHref>
                 <a className="text-xl text-left transform hover:scale-110">
@@ -96,7 +96,7 @@ export const Header: FunctionComponent<Props> = ({
           </div>
 
           {/* Social Icons */}
-          <div className="flex-1 text-right hidden md:contents">
+          <div className="flex-1 text-right contents">
             <Socials />
           </div>
         </nav>

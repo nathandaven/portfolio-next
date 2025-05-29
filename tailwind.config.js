@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   mode: "jit",
   purge: [
@@ -36,7 +38,7 @@ module.exports = {
         codepink: "var(--codepink)",
         codeorange: "var(--codeorange)",
         headerlight: "var(--header--light)",
-        headerdark: "var(--header--dark)"
+        headerdark: "var(--header--dark)",
       },
       minHeight: {
         0: "0",
@@ -47,13 +49,14 @@ module.exports = {
         screen50: "50vh",
         screen75: "75vh",
       },
-      maxHeight : {
-        "102": "26rem",
-        "108": "28rem"
+      maxHeight: {
+        102: "26rem",
+        108: "28rem",
       },
       screens: {
-        'hover-hover': {'raw': '(hover: hover)'},
-  }
+        xs: "400px",
+        ...defaultTheme.screens,
+      },
     },
   },
   variants: {
