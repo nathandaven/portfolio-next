@@ -6,6 +6,7 @@ Check it out at https://dev.nathandaven.dev/
 
 <img width="1931" alt="Screenshot 2025-05-28 at 9 33 40 PM" src="https://github.com/user-attachments/assets/1fa84cf7-7348-45c4-82f4-6da985092170" />
 
+I'm using this one for my dev portfolio. See my creative site at https://nathandaven.com or https://github.com/nathandaven/bynathandaven
 
 ## Running on local
 
