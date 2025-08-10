@@ -83,20 +83,28 @@ export const Header: FunctionComponent<Props> = ({
         )}
         id={id}
       >
-        <nav className="container mx-auto px-4 xl:px-20  justify-center items-center h-16  hidden xs:flex ">
+        <nav className="container mx-auto px-4 xl:px-20  justify-center sm:justify-between items-center h-16  hidden xs:flex ">
+          {/* Social Icons */}
+          <div className="hover:scale-110 items-center">
+            <a className=" font-medium" href="https://nathandaven.com">
+              {"<"} back to{" "}
+              <span className="font-medium">nathandaven.com </span>
+            </a>
+          </div>
+
           {/* Logo / title */}
-          <div className="flex-1 text-left contents">
+          <div className="hidden lg:block">
             <div className="flex-1 flex ">
               <Link href="/" passHref>
-                <a className="text-xl text-left transform hover:scale-110">
-                  <b>Nathan Davenport</b>{" "}
+                <a className="text-xl text-center transform hover:scale-110">
+                  <b>Nathan Davenport</b> – Developer Portfolio{" "}
                 </a>
               </Link>
             </div>
           </div>
 
           {/* Social Icons */}
-          <div className="flex-1 text-right contents">
+          <div className="text-right hidden sm:block">
             <Socials />
           </div>
         </nav>
