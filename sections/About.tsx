@@ -39,7 +39,16 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                   <span className="text-codeblue">
                     <b className="">Kubernetes</b>
                   </span>
-                  . Currently at <b className="text-purple-300">NCR Voyix</b>.
+                  . Currently at{" "}
+                  <a
+                    href="https://ecp123.com/"
+                    target="_blank"
+                    className="text-indigo-300 font-bold"
+                    rel="noreferrer"
+                  >
+                    ECP
+                  </a>
+                  .
                 </span>
               </p>
               <p className="py-4 pb-6">
@@ -48,8 +57,8 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                 </h4>
                 <ul>
                   <li className="py-0.5">
-                    <b className="">NCR Voyix</b> – Software Engineer II (Oct.
-                    2023 - Present)
+                    <b className="">ECP</b> – Senior Software Engineer (July
+                    2025 - Present)
                   </li>
                 </ul>
               </p>
@@ -58,6 +67,10 @@ export const About: FunctionComponent<Props> = ({ children }) => {
                   <b>Previous Roles</b>
                 </h4>
                 <ul>
+                  <li className="py-0.5">
+                    <b className="">NCR Voyix</b> – Software Engineer II (Oct.
+                    2023 - July 2025)
+                  </li>
                   <li className="py-0.5">
                     <b className="">NCR Corporation</b> – Software Engineer I
                     (June 2022 - Oct. 2023)
