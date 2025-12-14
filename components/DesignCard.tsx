@@ -1,15 +1,8 @@
-import React, { FunctionComponent, useEffect } from "react"; // importing FunctionComponent
-import classNames from "classnames";
-
 import { motion } from "framer-motion";
-
-import { Card } from "./Card";
-
 // Media
 import Image from "next/image";
-
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { FunctionComponent } from "react"; // importing FunctionComponent
+import { Card } from "./Card";
 
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
@@ -60,13 +53,13 @@ export const DesignCard: FunctionComponent<Props> = ({
             <div className="">
               <div className="py-4 mb-4 relative object-cover xl:h-96 h-72 w-auto  ">
                 <Image
-                  layout="fill"
-                  objectFit="cover"
                   placeholder="blur"
                   quality={100}
                   className="rounded-lg shadow-lg transition-all"
                   src={photo}
                   alt={title}
+                  objectFit={"cover"}
+                  sizes="100vw"
                 />
               </div>
               <div className="py-1">

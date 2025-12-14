@@ -1,11 +1,8 @@
-import React, { FunctionComponent } from "react"; // importing FunctionComponent
 import classNames from "classnames";
-
 import { motion } from "framer-motion";
-
 // Resources
 import Image from "next/image";
-import DownArrow from "../public/resources/down-arrow.svg";
+import React, { FunctionComponent } from "react"; // importing FunctionComponent
 import DownArrowLight from "../public/resources/down-arrow-light.svg";
 
 // Props (type checked) -- use ? to make a prop optional
