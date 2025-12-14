@@ -1,15 +1,11 @@
-import React, { FunctionComponent } from "react"; // importing FunctionComponent
-import { Page } from "../components/Page";
-import { Card } from "../components/Card";
-import { Title } from "../components/Title";
-
-// Framer Motion
-import { motion } from "framer-motion";
-
 // Media
 import Image from "next/image";
-import ProfilePhoto from "../public/resources/profile.jpeg";
+import React, { FunctionComponent } from "react"; // importing FunctionComponent
+import { Card } from "../components/Card";
 import { Continue } from "../components/Continue";
+import { Page } from "../components/Page";
+import { Title } from "../components/Title";
+import ProfilePhoto from "../public/resources/profile.jpeg";
 
 type Props = {};
 
@@ -17,7 +13,6 @@ export const About: FunctionComponent<Props> = ({ children }) => {
   return (
     <Page variant="DARK" id="about">
       <Title text="About" />
-
       <Card variant="DARK">
         {/* <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-2  font-mono"> */}
         <div className=" w-full flex content-evenly lg:flex-row flex-col  font-mono">
@@ -25,7 +20,7 @@ export const About: FunctionComponent<Props> = ({ children }) => {
             <div className="">
               <p className="py-4 pb-6 text-xl">
                 <span className="">
-                  Software engineer with{" "}
+                  Software engineer with over{" "}
                   <b className="text-codeblue">3 years</b> of experience
                   building full-stack applications using{" "}
                   <span className="text-codeblue">
@@ -172,6 +167,11 @@ export const About: FunctionComponent<Props> = ({ children }) => {
               className="bg-codewhite p-1 rounded-full shadow-lg justify-self-center "
               src={ProfilePhoto}
               alt="Portrait of Nathan Davenport"
+              /* eslint-disable react/no-unsupported-features */
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
             />
           </div>
         </div>

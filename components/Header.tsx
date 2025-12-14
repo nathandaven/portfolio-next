@@ -1,7 +1,6 @@
-import React, { FunctionComponent } from "react"; // importing FunctionComponent
 import classNames from "classnames";
-import { Socials } from "./Socials";
 import Link from "next/link";
+import React, { FunctionComponent } from "react"; // importing FunctionComponent
 
 // Props (type checked) -- use ? to make a prop optional
 type Props = {
@@ -79,7 +78,7 @@ export const Header: FunctionComponent<Props> = ({
             ? "bg-headerlight  dark:text-codewhite dark:bg-headerdark shadow-md  backdrop-blur-md"
             : "",
           className,
-          show ? "block" : "hidden"
+          show ? "block" : "hidden",
         )}
         id={id}
       >
@@ -94,7 +93,7 @@ export const Header: FunctionComponent<Props> = ({
           {/* Logo / title */}
           <div className="hidden lg:block">
             <div className="flex-1 flex ">
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <a className="text-xl text-center transform hover:scale-110">
                   <b>Nathan Davenport</b> – Developer Portfolio
                 </a>
